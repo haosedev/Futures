@@ -1,15 +1,29 @@
 <template>
   <div class="test">
-
+      <table>
+        <tr v-for="(vo, index) in nowlist" :key="index">
+          <td>{{vo.code}}</td>
+          <td>{{vo.name}}</td>
+          <td>{{vo.yestoday_price}}</td>
+          <td>{{vo.start_price}}</td>
+          <td>{{vo.now_price}}</td>
+          <td>{{vo.ud_price}}</td>
+          <td>{{vo.ud_precent}}</td>
+        </tr>
+      </table>
   </div>
 </template>
 <script>
+  import {_} from 'vue-underscore';
   export default {
     name : 'Main',
     data() {
       return {
         websock: null,
         handlers:[],
+        data1:[],
+        data2:[],
+        nowlist:[],
       }
     },
     created() {
@@ -49,10 +63,10 @@
       websocketclose(e){  // 关闭
         console.log('断开连接',e);
       },
-      //
+      //自动处理
       receiveMessage: function(message) {
           var data, action;
-          console.log("data: " + message);
+          //console.log("data: " + message);
           data = JSON.parse(message);
           if(data instanceof Array) {
               if(data[0] instanceof Array) {
@@ -68,34 +82,34 @@
           var action = data[0];
           if(this.handlers[action] && _.isFunction(this.handlers[action])) {
               this.handlers[action].call(this, data);
-          }
-          else {
+          } else {
               console.log("Unknown action : " + action);
           }
       },
       receiveActionBatch: function(actions) {
           var self = this;
-          //_.each(actions, function(action) {
-          //    self.receiveAction(action);
-          //});
+          _.each(actions, function(action) {
+             self.receiveAction(action);
+          });
       },
-      //
+      //自定义处理
       receiveSystem: function(data) {
           var msg = data[1];     
-          console.log(data);
+          console.log('SYSTEM',data);
       },
       receiveWelcome: function(data) {
           var id = data[1],
               name = data[2];     
-          console.log(data);
+          console.log('WELCOME',data);
       },
       receiveMsg: function(data) {
           var msg = data[1];     
-          console.log(data);
+          console.log('MESSAGE',data);
       },
       receiveOffer: function(data) {
           var msg = data[1];     
-          console.log(data);
+          console.log('OFFER',msg);
+          this.nowlist=msg;
       },
     },
   }

@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//import underscore from 'vue-underscore';  //用于使用 _.isFunction 和 _.each
 
+//Vue.use(underscore);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
