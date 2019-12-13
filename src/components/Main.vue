@@ -1,16 +1,29 @@
 <template>
-  <div class="test">
+  <div class="board">
       <table>
+          <tr class="title">
+            <td>▼</td>
+            <td>代码</td>
+            <td>名称</td>
+            <td>涨幅</td>
+            <td>现价</td>
+            <td>涨跌</td>
+            <td>今开</td>
+            <td>最高</td>
+            <td>最低</td>
+            <td>昨收</td>
+          </tr>
         <tr v-for="(vo, index) in datalist" :key="index">
-          <td>{{vo.code}}</td>
-          <td>{{vo.name}}</td>
-          <td>{{vo.yestoday_price|toYuan}}</td>
-          <td>{{vo.start_price|toYuan}}</td>
-          <td>{{vo.now_price|toYuan}}</td>
-          <td>{{vo.ud_price|toYuan}}</td>
-          <td>{{vo.ud_precent|toYuan}}%</td>
-          <td>{{vo.max_up|toYuan}}</td>
-          <td>{{vo.max_down|toYuan}}</td>
+          <td class="td1">{{index+1}}</td>
+          <td class="td2">{{vo.code}}</td>
+          <td class="td3">{{vo.name}}</td>
+          <td class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
+          <td class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
+          <td class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
+          <td class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
+          <td class="td8" :class="vo.color">{{vo.max_up|toYuan}}</td>
+          <td class="td9" :class="vo.color">{{vo.max_down|toYuan}}</td>
+          <td class="td10">{{vo.yestoday_price|toYuan}}</td>
         </tr>
       </table>
   </div>
@@ -23,8 +36,6 @@
       return {
         websock: null,
         handlers:[],
-        data1:[],
-        data2:[],
         datalist:[],
       }
     },
@@ -110,7 +121,7 @@
       },
       receiveOffer: function(data) {
           var msg = data[1];     
-          console.log('OFFER',msg);
+          //console.log('OFFER',msg);
           this.ChangeOffer(msg);
       },
       //
@@ -122,6 +133,8 @@
             isFindID=i;
           }
         })
+        if (data['ud_price']>0) data['color']='red';
+        else if (data['ud_price']<0) data['color']='green';
         if (isFindID===-1){
           this.datalist.push(data);
         }else{
@@ -134,4 +147,27 @@
   }
 </script>
 <style scope>
+  html{
+    background-color: #000;
+  }
+  table{
+    width:90%;
+    margin:0 auto;
+  }
+  .title{
+    color:#ccc;
+    font-size:17px;
+  }
+  .td2,.td3{
+    color:#fffd81;
+  }
+  .td1,.td4,.td5,.td6,.td7,.td8,.td9,.td10 {
+    color:#ccc;
+  }
+  .red{
+    color:#ff5c53;
+  }
+  .green{
+    color:#63fd52;
+  }
 </style>
