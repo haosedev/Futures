@@ -1,14 +1,16 @@
 <template>
   <div class="test">
       <table>
-        <tr v-for="(vo, index) in nowlist" :key="index">
+        <tr v-for="(vo, index) in datalist" :key="index">
           <td>{{vo.code}}</td>
           <td>{{vo.name}}</td>
-          <td>{{vo.yestoday_price}}</td>
-          <td>{{vo.start_price}}</td>
-          <td>{{vo.now_price}}</td>
-          <td>{{vo.ud_price}}</td>
-          <td>{{vo.ud_precent}}</td>
+          <td>{{vo.yestoday_price|toYuan}}</td>
+          <td>{{vo.start_price|toYuan}}</td>
+          <td>{{vo.now_price|toYuan}}</td>
+          <td>{{vo.ud_price|toYuan}}</td>
+          <td>{{vo.ud_precent|toYuan}}%</td>
+          <td>{{vo.max_up|toYuan}}</td>
+          <td>{{vo.max_down|toYuan}}</td>
         </tr>
       </table>
   </div>
@@ -23,7 +25,7 @@
         handlers:[],
         data1:[],
         data2:[],
-        nowlist:[],
+        datalist:[],
       }
     },
     created() {
@@ -109,8 +111,25 @@
       receiveOffer: function(data) {
           var msg = data[1];     
           console.log('OFFER',msg);
-          this.nowlist=msg;
+          this.ChangeOffer(msg);
       },
+      //
+      ChangeOffer: function(data){
+        //查找列表
+        var isFindID=-1;
+        this.datalist.forEach(function(v,i,arr){
+          if (v['code']==data['code']){
+            isFindID=i;
+          }
+        })
+        if (isFindID===-1){
+          this.datalist.push(data);
+        }else{
+          //替换
+          this.datalist.splice(isFindID,1,data);
+        }
+        //***变化的这条需要给个动画
+      }
     },
   }
 </script>
