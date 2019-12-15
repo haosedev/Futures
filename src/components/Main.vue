@@ -1,31 +1,67 @@
 <template>
-  <div class="board">
-      <table>
-          <tr class="title">
-            <td>▼</td>
-            <td>代码</td>
-            <td>名称</td>
-            <td>涨幅</td>
-            <td>现价</td>
-            <td>涨跌</td>
-            <td>今开</td>
-            <td>最高</td>
-            <td>最低</td>
-            <td>昨收</td>
-          </tr>
-        <tr v-for="(vo, index) in datalist" :key="index">
-          <td class="td1">{{index+1}}</td>
-          <td class="td2">{{vo.code}}</td>
-          <td class="td3">{{vo.name}}</td>
-          <td class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
-          <td class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
-          <td class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
-          <td class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
-          <td class="td8" :class="vo.color">{{vo.max_up|toYuan}}</td>
-          <td class="td9" :class="vo.color">{{vo.max_down|toYuan}}</td>
-          <td class="td10">{{vo.yestoday_price|toYuan}}</td>
-        </tr>
-      </table>
+  <div>
+    <div class="board">
+        <table class="table_head">
+          <colgroup>
+            <col width="30"></col>
+            <col width="80"></col>
+            <col width="100"></col>
+            <col width="80"></col>
+            <col width="70"></col>
+            <col width="70"></col>
+            <col width="70"></col>
+            <col width="70"></col>
+            <col width="70"></col>
+            <col width="70"></col>
+            <col/></col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>▼</th>
+              <th>代码</th>
+              <th>名称</th>
+              <th>涨幅</th>
+              <th>现价</th>
+              <th>涨跌</th>
+              <th>今开</th>
+              <th>最高</th>
+              <th>最低</th>
+              <th>昨收</th>
+              <th></th>
+            </tr>
+          </thead>
+        </table>
+        <table class="table_body">
+            <colgroup>
+              <col width="30"></col>
+              <col width="80"></col>
+              <col width="100"></col>
+              <col width="80"></col>
+              <col width="70"></col>
+              <col width="70"></col>
+              <col width="70"></col>
+              <col width="70"></col>
+              <col width="70"></col>
+              <col width="70"></col>
+              <col/></col>
+            </colgroup>
+            <tbody>
+              <tr v-for="(vo, index) in datalist" :key="index">
+                <td class="td1">{{index+1}}</td>
+                <td class="td2">{{vo.code}}</td>
+                <td class="td3">{{vo.name}}</td>
+                <td class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
+                <td class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
+                <td class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
+                <td class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
+                <td class="td8 red">{{vo.max_up|toYuan}}</td>
+                <td class="td9 green">{{vo.max_down|toYuan}}</td>
+                <td class="td10">{{vo.yestoday_price|toYuan}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
   </div>
 </template>
 <script>
@@ -150,13 +186,46 @@
   html{
     background-color: #000;
   }
+  .board{
+    border:1px solid #ccc;
+    width: 780px;
+  }
   table{
-    width:90%;
+    width:100%;
     margin:0 auto;
   }
-  .title{
+  .table_head{
+    border-bottom:1px solid #ccc;
+    padding:3px 0;
+  }
+  .table_head th{
+    vertical-align: baseline;
     color:#ccc;
-    font-size:17px;
+    font-size:16px;
+  }
+  .table_body{
+    padding:5px 0;
+    height:500px;
+    display:block;
+    overflow-y:scroll;
+  }
+  .table_body::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+  }
+  .table_body::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #535353;
+  }
+  .table_body::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #b1afaf;
+  }
+  .table_body td{
+    vertical-align: baseline;
   }
   .td2,.td3{
     color:#fffd81;
