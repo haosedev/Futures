@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="board">
+        <div class="bar head">
+          当前：
+        </div>
         <table class="table_head">
           <colgroup>
             <col width="30"></col>
@@ -61,6 +64,9 @@
               </tr>
             </tbody>
           </table>
+          <div class="bar bottom">
+            底部：
+          </div>
     </div>
   </div>
 </template>
@@ -189,6 +195,18 @@
   .board{
     border:1px solid #ccc;
     width: 780px;
+  }
+  .board .bar{
+    color:#ccc;
+    padding:3px 5px;
+    text-align: left;
+    font-size:14px;
+  }
+  .board .head{
+    border-bottom:1px solid #ccc;
+  }
+  .board .bottom{
+    border-top:1px solid #ccc;
   }
   table{
     width:100%;
