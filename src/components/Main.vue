@@ -77,12 +77,27 @@
     data() {
       return {
         websock: null,
+        pingTimer:null,
+        pingLastTime:0, //延时
         handlers:[],
         datalist:[],
       }
     },
     created() {
+      var self = this;
       this.initWebSocket();
+      this.pingTimer = setInterval(function(){
+        if (self.websock.readyState===1) {
+          console.log('wocket is ready 1',self.pingLastTime)
+          self.pingLastTime+=3;
+          if (self.pingLastTime>40){
+            self.pingLastTime=0;
+            self.SendPing();
+          }
+        }else if (self.websock.readyState===3){
+          self.initWebSocket(); //重连
+        }
+      },3000)
     },
     destroyed() {
       this.websock.close() // 离开路由之后断开websocket连接
@@ -102,8 +117,8 @@
         this.handlers[this.cons.Types.Messages.OFFER] = this.receiveOffer;
       },
       websocketonopen(){ // 连接建立之后执行send方法发送数据
-        let actions = [1,'Lin']; 
-        this.websocketsend(JSON.stringify(actions));
+        let actions = [this.cons.Types.Messages.HELLO,'Lin']; 
+        this.websocketsend(actions);
       },
       websocketonerror(){ // 连接建立失败重连
         this.initWebSocket();
@@ -113,7 +128,7 @@
         this.receiveMessage(e.data);
       },
       websocketsend(Data){ // 数据发送
-        this.websock.send(Data);
+        this.websock.send(JSON.stringify(Data));
       },
       websocketclose(e){  // 关闭
         console.log('断开连接',e);
@@ -162,6 +177,7 @@
           console.log('MESSAGE',data);
       },
       receiveOffer: function(data) {
+//console.log(this.cons.Types.Messages.WELCOME);
           var msg = data[1];     
           //console.log('OFFER',msg);
           this.ChangeOffer(msg);
@@ -184,7 +200,12 @@
           this.datalist.splice(isFindID,1,data);
         }
         //***变化的这条需要给个动画
-      }
+      },
+      //**定时发送Ping */
+      SendPing:function (){
+        let actions = [this.cons.Types.Ping]; 
+        this.websocketsend(actions);
+      },
     },
   }
 </script>
