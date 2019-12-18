@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="board">
+    <div class="board" @contextmenu.prevent="">
         <div class="bar head">
           开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
         </div>
