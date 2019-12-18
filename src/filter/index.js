@@ -6,7 +6,7 @@ const vFliter={
             num=num/100
             return num.toFixed(2)
         }else{
-            return 'Error'
+            return ''
         }
     },
     toYuanNumber:function(value){

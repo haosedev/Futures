@@ -2,70 +2,44 @@
   <div>
     <div class="board">
         <div class="bar head">
-          开盘序列：{{marketInfo.daytime}} ,盘序：{{marketInfo.nowHour}}
+          开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
         </div>
         <table class="table_head">
-          <colgroup>
-            <col width="30"></col>
-            <col width="80"></col>
-            <col width="100"></col>
-            <col width="80"></col>
-            <col width="70"></col>
-            <col width="70"></col>
-            <col width="70"></col>
-            <col width="70"></col>
-            <col width="70"></col>
-            <col width="70"></col>
-            <col/></col>
-          </colgroup>
           <thead>
             <tr>
-              <th>▼</th>
-              <th>代码</th>
-              <th>名称</th>
-              <th>涨幅</th>
-              <th>现价</th>
-              <th>涨跌</th>
-              <th>今开</th>
-              <th>最高</th>
-              <th>最低</th>
-              <th>昨收</th>
+              <th width="30">▼</th>
+              <th width="80">代码</th>
+              <th width="100">名称</th>
+              <th width="80">涨幅</th>
+              <th width="70">现价</th>
+              <th width="70">涨跌</th>
+              <th width="70">今开</th>
+              <th width="70">最高</th>
+              <th width="70">最低</th>
+              <th width="70">昨收</th>
               <th></th>
             </tr>
           </thead>
         </table>
         <table class="table_body">
-            <colgroup>
-              <col width="30"></col>
-              <col width="80"></col>
-              <col width="100"></col>
-              <col width="80"></col>
-              <col width="70"></col>
-              <col width="70"></col>
-              <col width="70"></col>
-              <col width="70"></col>
-              <col width="70"></col>
-              <col width="70"></col>
-              <col/></col>
-            </colgroup>
             <tbody>
               <tr v-for="(vo, index) in datalist" :key="index">
-                <td class="td1">{{index+1}}</td>
-                <td class="td2">{{vo.code}}</td>
-                <td class="td3">{{vo.name}}</td>
-                <td class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
-                <td class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
-                <td class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
-                <td class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
-                <td class="td8 red">{{vo.max_up|toYuan}}</td>
-                <td class="td9 green">{{vo.max_down|toYuan}}</td>
-                <td class="td10">{{vo.yestoday_price|toYuan}}</td>
+                <td width="30"  class="td1">{{index+1}}</td>
+                <td width="80"  class="td2">{{vo.code}}</td>
+                <td width="100" class="td3">{{vo.name}}</td>
+                <td width="80"  class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
+                <td width="70"  class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
+                <td width="70"  class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
+                <td width="70"  class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
+                <td width="70"  class="td8 red">{{vo.max_up|toYuan}}</td>
+                <td width="70"  class="td9 green">{{vo.max_down|toYuan}}</td>
+                <td width="70"  class="td10">{{vo.yestoday_price|toYuan}}</td>
                 <td></td>
               </tr>
             </tbody>
           </table>
           <div class="bar bottom">
-            状态:{{marketInfo.status}}，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
+            状态：<span class="td2">{{marketInfo.status}}</span>，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
           </div>
     </div>
   </div>
