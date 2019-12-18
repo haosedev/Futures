@@ -2,7 +2,7 @@
   <div>
     <div class="board">
         <div class="bar head">
-          当前：
+          开盘序列：{{marketInfo.daytime}} ,盘序：{{marketInfo.nowHour}}
         </div>
         <table class="table_head">
           <colgroup>
@@ -65,7 +65,7 @@
             </tbody>
           </table>
           <div class="bar bottom">
-            底部：
+            状态:{{marketInfo.status}}，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
           </div>
     </div>
   </div>
@@ -81,6 +81,7 @@
         pingLastTime:0, //延时
         handlers:[],
         datalist:[],
+        marketInfo:{},
       }
     },
     created() {
@@ -88,7 +89,6 @@
       this.initWebSocket();
       this.pingTimer = setInterval(function(){
         if (self.websock.readyState===1) {
-          console.log('wocket is ready 1',self.pingLastTime)
           self.pingLastTime+=3;
           if (self.pingLastTime>40){
             self.pingLastTime=0;
@@ -114,7 +114,8 @@
         this.handlers[this.cons.Types.Messages.SYSTEM] = this.receiveSystem;
         this.handlers[this.cons.Types.Messages.WELCOME] = this.receiveWelcome;
         this.handlers[this.cons.Types.Messages.MESSAGE] = this.receiveMsg;
-        this.handlers[this.cons.Types.Messages.OFFER] = this.receiveOffer;
+        this.handlers[this.cons.Types.Market.INFO] = this.receiveInfo;
+        this.handlers[this.cons.Types.Market.OFFER] = this.receiveOffer;
       },
       websocketonopen(){ // 连接建立之后执行send方法发送数据
         let actions = [this.cons.Types.Messages.HELLO,'Lin']; 
@@ -177,10 +178,19 @@
           console.log('MESSAGE',data);
       },
       receiveOffer: function(data) {
-//console.log(this.cons.Types.Messages.WELCOME);
           var msg = data[1];     
           //console.log('OFFER',msg);
           this.ChangeOffer(msg);
+      },
+      receiveInfo: function(data) {
+          var msg = data[1];     
+          console.log('INFO',msg);
+          if (msg['ud_price']>0) msg['color']='red';
+          else if (msg['ud_price']<0) msg['color']='green';
+          if (msg['isOfferTime']) msg['status']="开盘";
+          else msg['status']="收盘";
+          this.marketInfo=msg;
+          //this.ChangeOffer(msg);
       },
       //
       ChangeOffer: function(data){
