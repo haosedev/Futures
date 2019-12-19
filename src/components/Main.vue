@@ -10,27 +10,27 @@
             <col width="80">
             <col width="100">
             <col width="80">
-            <col width="70">
-            <col width="70">
-            <col width="70">
-            <col width="70">
-            <col width="70">
-            <col width="70">
-            <col/>
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col />
           </colgroup>
           <thead>
             <tr>
-              <th>▼</th>
-              <th>代码</th>
-              <th>名称</th>
-              <th>涨幅</th>
-              <th>现价</th>
-              <th>涨跌</th>
-              <th>开盘</th>
-              <th>最高</th>
-              <th>最低</th>
-              <th>昨收</th>
-              <th></th>
+              <th class="cell-index is-leaf"><div class="cell">▼</div></th>
+              <th class="cell-name is-leaf"><div class="cell">代码</div></th>
+              <th class="cell-name is-leaf"><div class="cell">名称</div></th>
+              <th class="is-leaf"><div class="cell">涨幅</div></th>
+              <th class="is-leaf"><div class="cell">现价</div></th>
+              <th class="is-leaf"><div class="cell">涨跌</div></th>
+              <th class="is-leaf"><div class="cell">开盘</div></th>
+              <th class="is-leaf"><div class="cell">最高</div></th>
+              <th class="is-leaf"><div class="cell">最低</div></th>
+              <th class="is-leaf"><div class="cell">昨收</div></th>
+              <th class="gutter" style="border-right:0px;"></th>
             </tr>
           </thead>
         </table>
@@ -40,27 +40,25 @@
               <col width="80">
               <col width="100">
               <col width="80">
-              <col width="70">
-              <col width="70">
-              <col width="70">
-              <col width="70">
-              <col width="70">
-              <col width="70">
-              <col/>
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
             </colgroup>
             <tbody>
               <tr v-for="(vo, index) in datalist" :key="index">
-                <td class="td1">{{index+1}}</td>
-                <td class="td2">{{vo.code}}</td>
-                <td class="td3">{{vo.name}}</td>
-                <td class="td4" :class="vo.color">{{vo.ud_precent|toYuan}}%</td>
-                <td class="td5" :class="vo.color">{{vo.now_price|toYuan}}</td>
-                <td class="td6" :class="vo.color">{{vo.ud_price|toYuan}}</td>
-                <td class="td7" :class="vo.color">{{vo.start_price|toYuan}}</td>
-                <td class="td8 red">{{vo.max_up|toYuan}}</td>
-                <td class="td9 green">{{vo.max_down|toYuan}}</td>
-                <td class="td10">{{vo.yestoday_price|toYuan}}</td>
-                <td></td>
+                <td class="cell-index td1"><div class="cell">{{index+1}}</div></td>
+                <td class="cell-name td2"><div class="cell">{{vo.code}}</div></td>
+                <td class="cell-name td3"><div class="cell">{{vo.name}}</div></td>
+                <td class="td4" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.ud_precent|toYuan}}%</span></div></td>
+                <td class="td5" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.now_price|toYuan}}</span></div></td>
+                <td class="td6" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.ud_price|toYuan}}</span></div></td>
+                <td class="td7" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.start_price|toYuan}}</span></div></td>
+                <td class="td8 red"><div class="cell">{{vo.max_up|toYuan}}</div></td>
+                <td class="td9 green"><div class="cell">{{vo.max_down|toYuan}}</div></td>
+                <td class="td10"><div class="cell">{{vo.yestoday_price|toYuan}}</div></td>
               </tr>
             </tbody>
           </table>
@@ -221,10 +219,9 @@
 </script>
 <style scope>
   html{
-    background-color: #000;
+    background-color: #15151b;
   }
   .board{
-    border:1px solid #ccc;
     width: 780px;
   }
   .board .bar{
@@ -233,34 +230,91 @@
     text-align: left;
     font-size:14px;
   }
-  .board .head{
-    border-bottom:1px solid #ccc;
-  }
-  .board .bottom{
-    border-top:1px solid #ccc;
-  }
   table{
     width:100%;
     margin:0 auto;
   }
-  .table_head{
-    border-bottom:1px solid #ccc;
-    padding:3px 0;
+  table td {
+    background-color: #1d1d23;
   }
-  .table_head th{
-    vertical-align: baseline;
-    color:#ccc;
-    font-size:16px;
+  table thead {
+    color: #909399;
+    font-weight: 500;
   }
+  .table td, .table th.is-leaf {
+    border-bottom: 1px solid #26262b;
+  }
+  table th {
+    background-color: #15151b;
+    padding: 0;
+    height: 24px;
+    line-height: 24px;
+    border-right: 1px solid hsla(0,0%,100%,.05);
+  }
+  table td, .table th {
+    padding: 12px 0;
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+  }
+  table th,table td {
+    padding: 4px 0;
+    border-right: 1px solid hsla(0,0%,100%,.05);
+    border-bottom: 1px solid hsla(0,0%,100%,.05);
+  }
+  .table td, .table th {
+    border-bottom: 1px solid hsla(0,0%,100%,.05);
+  }
+  table .cell {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  table .cell {
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: right;
+  }
+  .table_head th>.cell {
+    position: relative;
+    word-wrap: normal;
+    vertical-align: middle;
+    width: 100%;
+  }
+  .table_head th>.cell {
+    padding-left: 8px;
+    padding-right: 8px;
+    white-space: nowrap;
+    text-overflow: clip;
+    font-size: .75rem;
+  }
+  .cell-index .cell {
+    text-align: left;
+  }
+  .cell-name .cell {
+    white-space: normal;
+    text-align: left;
+  }
+  .table_head th.is-leaf {
+    border-bottom: 1px solid transparent;
+  }
+
   .table_body{
-    padding:5px 0;
     height:500px;
     display:block;
     overflow-y:scroll;
   }
   .table_body::-webkit-scrollbar {
     /*滚动条整体样式*/
-    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    width : 2px;  /*高宽分别对应横竖滚动条的尺寸*/
     height: 1px;
   }
   .table_body::-webkit-scrollbar-thumb {
@@ -272,6 +326,18 @@
     /*滚动条里面轨道*/
     box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
     background   : #b1afaf;
+  }
+  .transform-value {
+    transition: color .1s;
+  }
+  .color-up, .text-down {
+    color: #02a263!important;
+  }
+  .text-up {
+    color: #dd2d2f!important;
+  }
+  .color-down{
+    color:#57d26d!important
   }
   .table_body td{
     vertical-align: baseline;
@@ -287,5 +353,11 @@
   }
   .green{
     color:#63fd52;
+  }
+  .loveColorBlueInBlack{
+    color:#4a8ce2;
+  }
+  .loveColorGrayInBlack{
+    color:#b3b3b7;
   }
 </style>
