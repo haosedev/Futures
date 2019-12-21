@@ -228,6 +228,9 @@
     font-family: Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-size: .75rem;
     margin:0;
+    -webkit-user-select:none; 
+       -moz-user-select:none; 
+       -ms-user-select:none; user-select:none;
   }
   *, :after, :before {
     box-sizing: border-box;
@@ -336,6 +339,9 @@
     height:500px;
     display:block;
     overflow-y:scroll;
+  }
+  .table_body tr:hover>td {
+    background-color: #26262b;
   }
   .table_body::-webkit-scrollbar {
     /*滚动条整体样式*/
