@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="board" @contextmenu.prevent="">
-        <div class="bar head">
-          开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
+        <div class="card_header">
+          <div class="clearfix card-title">
+            开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
+          </div>
         </div>
-        <table class="table_head">
+        <table cellspacing="0" cellpadding="0" class="table_head">
           <colgroup>
             <col width="30">
             <col width="80">
@@ -23,18 +25,18 @@
               <th class="cell-index is-leaf"><div class="cell">▼</div></th>
               <th class="cell-name is-leaf"><div class="cell">代码</div></th>
               <th class="cell-name is-leaf"><div class="cell">名称</div></th>
-              <th class="is-leaf"><div class="cell">涨幅</div></th>
+              <th class="is-leaf"><div class="cell">涨跌幅</div></th>
+              <th class="is-leaf"><div class="cell">涨跌值</div></th>
               <th class="is-leaf"><div class="cell">现价</div></th>
-              <th class="is-leaf"><div class="cell">涨跌</div></th>
               <th class="is-leaf"><div class="cell">开盘</div></th>
               <th class="is-leaf"><div class="cell">最高</div></th>
               <th class="is-leaf"><div class="cell">最低</div></th>
               <th class="is-leaf"><div class="cell">昨收</div></th>
-              <th class="gutter" style="border-right:0px;"></th>
+              <th class="gutter" style="border-right: 0px;background-color:#1d1d23;"></th>
             </tr>
           </thead>
         </table>
-        <table class="table_body">
+        <table cellspacing="0" cellpadding="0" class="table_body">
             <colgroup>
               <col width="30">
               <col width="80">
@@ -52,12 +54,12 @@
                 <td class="cell-index td1"><div class="cell">{{index+1}}</div></td>
                 <td class="cell-name td2"><div class="cell">{{vo.code}}</div></td>
                 <td class="cell-name td3"><div class="cell">{{vo.name}}</div></td>
-                <td class="td4" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.ud_precent|toYuan}}%</span></div></td>
-                <td class="td5" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.now_price|toYuan}}</span></div></td>
-                <td class="td6" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.ud_price|toYuan}}</span></div></td>
-                <td class="td7" :class="vo.color"><div class="cell"><span class="transform-value text-down">{{vo.start_price|toYuan}}</span></div></td>
-                <td class="td8 red"><div class="cell">{{vo.max_up|toYuan}}</div></td>
-                <td class="td9 green"><div class="cell">{{vo.max_down|toYuan}}</div></td>
+                <td class="td4"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.ud_precent|toYuan}}%</span></div></td>
+                <td class="td5"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.ud_price|toYuan}}</span></div></td>
+                <td class="td6"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.now_price|toYuan}}</span></div></td>
+                <td class="td7"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.start_price|toYuan}}</span></div></td>
+                <td class="td8 text-up"><div class="cell">{{vo.max_up|toYuan}}</div></td>
+                <td class="td9 text-down"><div class="cell">{{vo.max_down|toYuan}}</div></td>
                 <td class="td10"><div class="cell">{{vo.yestoday_price|toYuan}}</div></td>
               </tr>
             </tbody>
@@ -199,14 +201,15 @@
             isFindID=i;
           }
         })
-        if (data['ud_price']>0) data['color']='red';
-        else if (data['ud_price']<0) data['color']='green';
+        if (data['ud_price']>0) data['color']='text-up';
+        else if (data['ud_price']<0) data['color']='text-down';
         if (isFindID===-1){
           this.datalist.push(data);
         }else{
           //替换
           this.datalist.splice(isFindID,1,data);
         }
+        console.log(this.datalist);
         //***变化的这条需要给个动画
       },
       //**定时发送Ping */
@@ -219,10 +222,19 @@
 </script>
 <style scope>
   html{
-    background-color: #15151b;
+    background-color: #1d1d23;
+  }
+  body{
+    font-family: Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+    font-size: .75rem;
+    margin:0;
+  }
+  *, :after, :before {
+    box-sizing: border-box;
   }
   .board{
     width: 780px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQYAAACyAgMAAADdd4l4AAAACVBMV…BoEoWTKMKGz69BIrwOCX47XeElEi/R5Yorrrjiiiuu+K/xG7/P5ne1wRTpAAAAAElFTkSuQmCC);
   }
   .board .bar{
     color:#ccc;
@@ -230,9 +242,22 @@
     text-align: left;
     font-size:14px;
   }
+  .card_header {
+    padding: 0 .5rem;
+    border-bottom: none;
+    line-height: 28px;
+    text-align: left;
+  }
+  .card-title {
+    color: #4a8ce2;
+    font-size: .88rem;
+    font-weight: 700;
+  }
   table{
     width:100%;
     margin:0 auto;
+    font-size: 14px;
+    color: #dde0e4;
   }
   table td {
     background-color: #1d1d23;
@@ -243,13 +268,6 @@
   }
   .table td, .table th.is-leaf {
     border-bottom: 1px solid #26262b;
-  }
-  table th {
-    background-color: #15151b;
-    padding: 0;
-    height: 24px;
-    line-height: 24px;
-    border-right: 1px solid hsla(0,0%,100%,.05);
   }
   table td, .table th {
     padding: 12px 0;
@@ -267,6 +285,13 @@
   }
   .table td, .table th {
     border-bottom: 1px solid hsla(0,0%,100%,.05);
+  }
+  table th {
+    background-color: #15151b;
+    padding: 0;
+    height: 24px;
+    line-height: 24px;
+    border-right: 1px solid hsla(0,0%,100%,.05);
   }
   table .cell {
     box-sizing: border-box;
@@ -314,7 +339,7 @@
   }
   .table_body::-webkit-scrollbar {
     /*滚动条整体样式*/
-    width : 2px;  /*高宽分别对应横竖滚动条的尺寸*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
     height: 1px;
   }
   .table_body::-webkit-scrollbar-thumb {
