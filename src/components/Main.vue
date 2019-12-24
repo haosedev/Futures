@@ -1,42 +1,53 @@
 <template>
-  <div>
-    <div class="board" @contextmenu.prevent="">
-        <div class="card_header">
-          <div class="clearfix card-title">
-            开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
+  <div @contextmenu.prevent="">
+        <div class="topbar">
+          <div class="title">
+            我是标题
           </div>
         </div>
-        <table cellspacing="0" cellpadding="0" class="table_head">
-          <colgroup>
-            <col width="30">
-            <col width="80">
-            <col width="100">
-            <col width="80">
-            <col width="80">
-            <col width="80">
-            <col width="80">
-            <col width="80">
-            <col width="80">
-            <col width="80">
-            <col />
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="cell-index is-leaf"><div class="cell">▼</div></th>
-              <th class="cell-name is-leaf"><div class="cell">代码</div></th>
-              <th class="cell-name is-leaf"><div class="cell">名称</div></th>
-              <th class="is-leaf"><div class="cell">涨跌幅</div></th>
-              <th class="is-leaf"><div class="cell">涨跌值</div></th>
-              <th class="is-leaf"><div class="cell">现价</div></th>
-              <th class="is-leaf"><div class="cell">开盘</div></th>
-              <th class="is-leaf"><div class="cell">最高</div></th>
-              <th class="is-leaf"><div class="cell">最低</div></th>
-              <th class="is-leaf"><div class="cell">昨收</div></th>
-              <th class="gutter" style="border-right: 0px;background-color:#1d1d23;"></th>
-            </tr>
-          </thead>
-        </table>
-        <table cellspacing="0" cellpadding="0" class="table_body">
+      <div class="screen">
+        <div class="board">
+          <div class="card_header bline">
+            <div class="card-title">
+              开盘序列：<span class="td2">{{marketInfo.daytime}}</span> ,盘序：<span class="td2">{{marketInfo.nowHour}}</span>
+            </div>
+          </div>
+          <div class="card_header noline">
+            <div class="card-title">
+            状态：<span class="td2">{{marketInfo.status}}</span>，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
+            </div>
+          </div>
+          <table cellspacing="0" cellpadding="0" class="table_head">
+            <colgroup>
+              <col width="30">
+              <col width="80">
+              <col width="100">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col width="80">
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="cell-index is-leaf"><div class="cell">▼</div></th>
+                <th class="cell-name is-leaf"><div class="cell">代码</div></th>
+                <th class="cell-name is-leaf"><div class="cell">名称</div></th>
+                <th class="is-leaf"><div class="cell">涨跌幅</div></th>
+                <th class="is-leaf"><div class="cell">涨跌值</div></th>
+                <th class="is-leaf"><div class="cell">现价</div></th>
+                <th class="is-leaf"><div class="cell">开盘</div></th>
+                <th class="is-leaf"><div class="cell">最高</div></th>
+                <th class="is-leaf"><div class="cell">最低</div></th>
+                <th class="is-leaf"><div class="cell">昨收</div></th>
+                <th class="gutter" style="border-right: 0px;background-color:#1d1d23;"></th>
+              </tr>
+            </thead>
+          </table>
+          <table cellspacing="0" cellpadding="0" class="table_body">
             <colgroup>
               <col width="30">
               <col width="80">
@@ -64,10 +75,11 @@
               </tr>
             </tbody>
           </table>
-          <div class="bar bottom">
-            状态：<span class="td2">{{marketInfo.status}}</span>，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
-          </div>
-    </div>
+        </div>
+        <div class="sellbox body-bg">
+              dddd
+        </div>
+      </div>
   </div>
 </template>
 <script>
@@ -184,7 +196,7 @@
       },
       receiveInfo: function(data) {
           var msg = data[1];     
-          console.log('INFO',msg);
+          //console.log('INFO',msg);
           if (msg['ud_price']>0) msg['color']='red';
           else if (msg['ud_price']<0) msg['color']='green';
           if (msg['isOfferTime']) msg['status']="开盘";
@@ -209,7 +221,6 @@
           //替换
           this.datalist.splice(isFindID,1,data);
         }
-        console.log(this.datalist);
         //***变化的这条需要给个动画
       },
       //**定时发送Ping */
@@ -235,9 +246,28 @@
   *, :after, :before {
     box-sizing: border-box;
   }
+  .topbar{
+    background-color: #26262b;
+    color: #b3b3b7;
+    line-height: 32px;
+    min-height: 32px;
+    padding-left: 1rem;
+    border-bottom: 1px solid #101011;
+    text-align: left;
+  }
+  .bline{
+    border-bottom: 1px solid #101011;
+  }
+  .noline{
+    border-bottom: none;
+  }
+  .screen{
+    display: flex;
+  }
   .board{
     width: 780px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQYAAACyAgMAAADdd4l4AAAACVBMV…BoEoWTKMKGz69BIrwOCX47XeElEi/R5Yorrrjiiiuu+K/xG7/P5ne1wRTpAAAAAElFTkSuQmCC);
+    border: 1px solid #101011;
+    border-top:none;
   }
   .board .bar{
     color:#ccc;
@@ -246,11 +276,11 @@
     font-size:14px;
   }
   .card_header {
-    padding: 0 .5rem;
-    border-bottom: none;
+    padding: 5px .5rem;
     line-height: 28px;
     text-align: left;
   }
+
   .card-title {
     color: #4a8ce2;
     font-size: .88rem;
@@ -334,7 +364,6 @@
   .table_head th.is-leaf {
     border-bottom: 1px solid transparent;
   }
-
   .table_body{
     height:500px;
     display:block;
@@ -390,5 +419,12 @@
   }
   .loveColorGrayInBlack{
     color:#b3b3b7;
+  }
+  .sellbox{
+    height: 100%;
+    border-left: 1px solid #101011;
+  }
+  .body-bg{
+    background-color: #1d1d23;
   }
 </style>
