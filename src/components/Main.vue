@@ -218,8 +218,13 @@
         if (isFindID===-1){
           this.datalist.push(data);
         }else{
-          //替换
+          //替换（全替换）
           this.datalist.splice(isFindID,1,data);
+          //**两种替换方式，一种全替换，一种部分替换
+          //this.datalist[isFindID]
+
+
+
         }
         //***变化的这条需要给个动画
       },
