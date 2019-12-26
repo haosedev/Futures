@@ -127,7 +127,8 @@
         this.handlers[this.cons.Types.Messages.WELCOME] = this.receiveWelcome;
         this.handlers[this.cons.Types.Messages.MESSAGE] = this.receiveMsg;
         this.handlers[this.cons.Types.Market.INFO] = this.receiveInfo;
-        this.handlers[this.cons.Types.Market.OFFER] = this.receiveOffer;
+        this.handlers[this.cons.Types.Market.OFFER] = this.receiveMOffer;
+        this.handlers[this.cons.Types.Market.CHANGE] = this.receiveMChange;
       },
       websocketonopen(){ // 连接建立之后执行send方法发送数据
         let actions = [this.cons.Types.Messages.HELLO,'Lin']; 
@@ -189,10 +190,15 @@
           var msg = data[1];     
           console.log('MESSAGE',data);
       },
-      receiveOffer: function(data) {
+      receiveMOffer: function(data) {
           var msg = data[1];     
           //console.log('OFFER',msg);
-          this.ChangeOffer(msg);
+          this.ChangeOffer(msg,true);
+      },
+      receiveMChange: function(data) {
+          var msg = data[1];     
+          //console.log('OFFER',msg);
+          this.ChangeOffer(msg,false);
       },
       receiveInfo: function(data) {
           var msg = data[1];     
@@ -205,7 +211,7 @@
           //this.ChangeOffer(msg);
       },
       //
-      ChangeOffer: function(data){
+      ChangeOffer: function(data,boo){
         //查找列表
         var isFindID=-1;
         this.datalist.forEach(function(v,i,arr){
@@ -219,12 +225,15 @@
           this.datalist.push(data);
         }else{
           //替换（全替换）
-          this.datalist.splice(isFindID,1,data);
-          //**两种替换方式，一种全替换，一种部分替换
-          //this.datalist[isFindID]
-
-
-
+          if (boo){
+            this.datalist.splice(isFindID,1,data);
+          }else{
+          //部分替换
+           this.datalist[isFindID]['ud_price'] = data['ud_price'];
+           this.datalist[isFindID]['ud_precent'] = data['ud_precent'];
+           this.datalist[isFindID]['now_price'] = data['now_price'];
+           this.datalist[isFindID]['color'] = data['color'];
+          }
         }
         //***变化的这条需要给个动画
       },

@@ -9,6 +9,7 @@ const Types = {
     Market:{
         INFO:  10,
         OFFER: 11,
+        CHANGE: 12,
     },
     Ping:9,
   };
