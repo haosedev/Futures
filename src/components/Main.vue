@@ -91,6 +91,7 @@
         websock: null,
         pingTimer:null,
         pingLastTime:0, //延时
+        userLogin:false,
         handlers:[],
         datalist:[],
         marketInfo:{},
@@ -107,6 +108,7 @@
             self.SendPing();
           }
         }else if (self.websock.readyState===3){
+          this.userLogin=false;
           self.initWebSocket(); //重连
         }
       },3000)
@@ -126,6 +128,7 @@
         this.handlers[this.cons.Types.Messages.SYSTEM] = this.receiveSystem;
         this.handlers[this.cons.Types.Messages.WELCOME] = this.receiveWelcome;
         this.handlers[this.cons.Types.Messages.MESSAGE] = this.receiveMsg;
+        this.handlers[this.cons.Types.Messages.LOGIN_ANSWER] = this.receiveLoginAnswer;
         this.handlers[this.cons.Types.Market.INFO] = this.receiveInfo;
         this.handlers[this.cons.Types.Market.OFFER] = this.receiveMOffer;
         this.handlers[this.cons.Types.Market.CHANGE] = this.receiveMChange;
@@ -145,6 +148,7 @@
         this.websock.send(JSON.stringify(Data));
       },
       websocketclose(e){  // 关闭
+        this.userLogin=false;
         console.log('断开连接',e);
       },
       //自动处理
@@ -189,6 +193,14 @@
       receiveMsg: function(data) {
           var msg = data[1];     
           console.log('MESSAGE',data);
+      },
+      receiveLoginAnswer:function(data){
+        if (data[1]===true){
+          this.userLogin=true;
+        }else{
+          this.userLogin=false;
+          alert(data[2]);
+        }
       },
       receiveMOffer: function(data) {
           var msg = data[1];     

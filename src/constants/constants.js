@@ -4,7 +4,7 @@ const Types = {
         HELLO: 1,
         WELCOME: 2,
         MESSAGE: 3,
-        
+        LOGIN_ANSWER: 4,
     },
     Market:{
         INFO:  10,
