@@ -77,7 +77,7 @@
           </table>
         </div>
         <div class="sellbox body-bg">
-              dddd
+              <div @click="doLogin"> 点我 登录！！</div>
         </div>
       </div>
   </div>
@@ -128,13 +128,13 @@
         this.handlers[this.cons.Types.Messages.SYSTEM] = this.receiveSystem;
         this.handlers[this.cons.Types.Messages.WELCOME] = this.receiveWelcome;
         this.handlers[this.cons.Types.Messages.MESSAGE] = this.receiveMsg;
-        this.handlers[this.cons.Types.Messages.LOGIN_ANSWER] = this.receiveLoginAnswer;
+        this.handlers[this.cons.Types.User.LOGIN_ANSWER] = this.receiveLoginAnswer;
         this.handlers[this.cons.Types.Market.INFO] = this.receiveInfo;
         this.handlers[this.cons.Types.Market.OFFER] = this.receiveMOffer;
         this.handlers[this.cons.Types.Market.CHANGE] = this.receiveMChange;
       },
       websocketonopen(){ // 连接建立之后执行send方法发送数据
-        let actions = [this.cons.Types.Messages.HELLO,'Lin']; 
+        let actions = [this.cons.Types.Messages.HELLO]; 
         this.websocketsend(actions);
       },
       websocketonerror(){ // 连接建立失败重连
@@ -197,6 +197,7 @@
       receiveLoginAnswer:function(data){
         if (data[1]===true){
           this.userLogin=true;
+          console.log(data[2]);
         }else{
           this.userLogin=false;
           alert(data[2]);
@@ -253,6 +254,10 @@
       SendPing:function (){
         let actions = [this.cons.Types.Ping]; 
         this.websocketsend(actions);
+      },
+      doLogin:function(){
+        let actionslogin = [this.cons.Types.User.LOGIN,'Lin','lin111']; 
+        this.websocketsend(actionslogin);
       },
     },
   }
