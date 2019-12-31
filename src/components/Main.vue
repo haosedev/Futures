@@ -47,7 +47,7 @@
               </tr>
             </thead>
           </table>
-          <table cellspacing="0" cellpadding="0" class="table_body">
+          <table cellspacing="0" cellpadding="0" class="table_body" style="height:700px;">
             <colgroup>
               <col width="30">
               <col width="80">
@@ -77,7 +77,65 @@
           </table>
         </div>
         <div class="sellbox body-bg">
-              <div @click="doLogin"> 点我 登录！！</div>
+            <div v-show="!userLogin">
+              <div>
+
+                <div class="LoginBtn" @click="doLogin">点我登录</div>
+              </div>
+            </div>
+            <div class="contentBox" v-show="userLogin">
+              <div class="userinfo">
+                <div>
+
+                </div>
+              </div>
+              <table cellspacing="0" cellpadding="0" class="table_head">
+                <colgroup>
+                  <col width="80">
+                  <col width="100">
+                  <col width="80">
+                  <col width="80">
+                  <col width="100">
+                  <col width="100">
+                  <col width="100">
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="cell-name is-leaf"><div class="cell">代码</div></th>
+                    <th class="cell-name is-leaf"><div class="cell">名称</div></th>
+                    <th class="is-leaf"><div class="cell">买入价</div></th>
+                    <th class="is-leaf"><div class="cell">持仓</div></th>
+                    <th class="is-leaf"><div class="cell">当前价</div></th>
+                    <th class="is-leaf"><div class="cell">总价值</div></th>
+                    <th class="is-leaf"><div class="cell">盈亏</div></th>
+                    <th class="gutter" style="border-right: 0px;background-color:#1d1d23;"></th>
+                  </tr>
+                </thead>
+              </table>
+              <table cellspacing="0" cellpadding="0" class="table_body">
+                <colgroup>
+                  <col width="80">
+                  <col width="100">
+                  <col width="80">
+                  <col width="80">
+                  <col width="100">
+                  <col width="100">
+                  <col width="100">
+                </colgroup>
+                <tbody>
+                  <tr v-for="(vo, index) in keeplist" :key="index">
+                    <td class="cell-name td4"><div class="cell">{{vo.code}}</div></td>
+                    <td class="cell-name td4"><div class="cell">{{vo.name}}</div></td>
+                    <td class="td7"><div class="cell">{{vo.price|toYuan}}</div></td>
+                    <td class="td7"><div class="cell">{{vo.num}}</div></td>
+                    <td class="td5"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.now_price|toYuan}}</span></div></td>
+                    <td class="td6"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.all_price|toYuan}}</span></div></td>
+                    <td class="td7"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.ud_price|toYuan}}</span></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
         </div>
       </div>
   </div>
@@ -94,6 +152,8 @@
         userLogin:false,
         handlers:[],
         datalist:[],
+        keeplist:[],
+        userInfo:[],
         marketInfo:{},
       }
     },
@@ -129,9 +189,11 @@
         this.handlers[this.cons.Types.Messages.WELCOME] = this.receiveWelcome;
         this.handlers[this.cons.Types.Messages.MESSAGE] = this.receiveMsg;
         this.handlers[this.cons.Types.User.LOGIN_ANSWER] = this.receiveLoginAnswer;
+        this.handlers[this.cons.Types.User.INFO] = this.receiveUserInfo;
         this.handlers[this.cons.Types.Market.INFO] = this.receiveInfo;
         this.handlers[this.cons.Types.Market.OFFER] = this.receiveMOffer;
         this.handlers[this.cons.Types.Market.CHANGE] = this.receiveMChange;
+        this.handlers[this.cons.Types.Market.KEEP] = this.receiveKeep;
       },
       websocketonopen(){ // 连接建立之后执行send方法发送数据
         let actions = [this.cons.Types.Messages.HELLO]; 
@@ -203,6 +265,11 @@
           alert(data[2]);
         }
       },
+      receiveUserInfo:function(data){
+        var msg = data[1];
+        console.log(msg);
+        this.userInfo=msg;
+      },
       receiveMOffer: function(data) {
           var msg = data[1];     
           //console.log('OFFER',msg);
@@ -248,7 +315,43 @@
            this.datalist[isFindID]['color'] = data['color'];
           }
         }
+        this.reFreashKeep(data);
         //***变化的这条需要给个动画
+      },
+      receiveKeep: function(data) {
+          var msg = data[1];     
+          console.log('KEEP',msg);
+          this.FillKeep(msg);
+      },
+      FillKeep: function(data){
+        //查找列表
+        var isFindID=-1;
+        this.keeplist.forEach(function(v,i,arr){
+          if (v['code']==data['code']){
+            isFindID=i;
+          }
+        })
+        if (isFindID===-1){
+          if (data['num']>0)
+            this.keeplist.push(data);
+        }else{
+          if (data['num']>0)
+            this.keeplist.splice(isFindID,1,data);
+          else
+            this.keeplist.splice(isFindID,1);
+        }
+      },
+      reFreashKeep:function(data){
+        var isFindID=-1;
+        this.keeplist.forEach(function(v,i,arr){
+          if (v['code']==data['code']){
+            v['now_price'] = data['now_price'];
+            v['all_price'] = data['now_price']*v['num'];
+            v['ud_price'] = (data['now_price']-v['price'])*v['num'];
+            if (v['ud_price']>0) v['color']='text-up';
+            else if (v['ud_price']<0) v['color']='text-down';
+          }
+        })
       },
       //**定时发送Ping */
       SendPing:function (){
@@ -294,6 +397,7 @@
   }
   .screen{
     display: flex;
+    justify-content: center;
   }
   .board{
     width: 780px;
@@ -311,7 +415,6 @@
     line-height: 28px;
     text-align: left;
   }
-
   .card-title {
     color: #4a8ce2;
     font-size: .88rem;
@@ -396,7 +499,6 @@
     border-bottom: 1px solid transparent;
   }
   .table_body{
-    height:500px;
     display:block;
     overflow-y:scroll;
   }
@@ -454,6 +556,19 @@
   .sellbox{
     height: 100%;
     border-left: 1px solid #101011;
+    min-width:650px;
+  }
+  .contentBox{
+    display: inline-block;
+  }
+  .LoginBtn{
+    margin:70px auto;
+    line-height: 30px;
+    font-size:16px;
+    width:120px;
+    color:#fff;
+    background-color: #4a8ce2;
+    border-radius: 5px;
   }
   .body-bg{
     background-color: #1d1d23;
