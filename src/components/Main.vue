@@ -77,16 +77,42 @@
           </table>
         </div>
         <div class="sellbox body-bg">
-            <div v-show="!userLogin">
-              <div>
-
-                <div class="LoginBtn" @click="doLogin">点我登录</div>
-              </div>
+          <div v-show="!userLogin">
+            <div class="LoginArea">
+              <h1>SIGN UP</h1>
+              <input type="text" class="input-text" placeholder="账号" v-model="username">
+              <input type="text" class="input-text" placeholder="密码" v-model="password">
+              <div class="LoginBtn" @click="doLogin">点我登录</div>
             </div>
-            <div class="contentBox" v-show="userLogin">
-              <div class="userinfo">
-                <div>
-
+          </div>
+          <div class="contentBox" v-show="userLogin">
+            <div class="userinfo">
+              <div class="card_header noline">
+                <div class="card-title">
+                  账户信息
+                </div>
+              </div>
+              <div>
+                <table cellspacing="0" cellpadding="0" class="table_head">
+                  <tr>
+                    <th width="25%"><div class="cell">账号</div></th>
+                    <th width="25%"><div class="cell">昵称</div></th>
+                    <th width="25%"><div class="cell">余额</div></th>
+                    <th width="25%"><div class="cell">最后登录时间</div></th>
+                  </tr>
+                  <tr>
+                    <td class=""><div class="cell">{{userInfo.username}}</div></td>
+                    <td class=""><div class="cell">{{userInfo.nickname}}</div></td>
+                    <td class=""><div class="cell">{{userInfo.money|toYuan}}</div></td>
+                    <td class=""><div class="cell">{{userInfo.login_time}}</div></td>
+                  </tr>
+                </table>
+              </div>
+            </div> 
+            <div class="keep">
+              <div class="card_header noline">
+                <div class="card-title">
+                持仓
                 </div>
               </div>
               <table cellspacing="0" cellpadding="0" class="table_head">
@@ -136,6 +162,30 @@
                 </tbody>
               </table>
             </div>
+            <div class="are">
+              <div class="card_header noline">
+                <div class="card-title">
+                  挂单信息
+                </div>
+              </div>
+              <div>
+                <table cellspacing="0" cellpadding="0" class="table_head">
+                  <tr>
+                    <th width="25%"><div class="cell">代码</div></th>
+                    <th width="25%"><div class="cell">名称</div></th>
+                    <th width="25%"><div class="cell">买入价</div></th>
+                    <th width="25%"><div class="cell">买入数量</div></th>
+                  </tr>
+                  <tr>
+                    <td class=""><div class="cell">&nbsp;</div></td>
+                    <td class=""><div class="cell"></div></td>
+                    <td class=""><div class="cell"></div></td>
+                    <td class=""><div class="cell"></div></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   </div>
@@ -155,6 +205,8 @@
         keeplist:[],
         userInfo:[],
         marketInfo:{},
+        username:'',
+        password:'',
       }
     },
     created() {
@@ -359,7 +411,7 @@
         this.websocketsend(actions);
       },
       doLogin:function(){
-        let actionslogin = [this.cons.Types.User.LOGIN,'Lin','lin111']; 
+        let actionslogin = [this.cons.Types.User.LOGIN,this.username,this.password]; 
         this.websocketsend(actionslogin);
       },
     },
@@ -561,14 +613,41 @@
   .contentBox{
     display: inline-block;
   }
+  .LoginArea{
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    margin: 30px auto;
+  }
+  .LoginArea h1{
+    margin-top: 20px;
+    color: #fff;
+    font-size: 40px;
+  }
+  .input-text{
+    margin:7px;
+    display: block;
+    width: 100%;
+    height:30px;
+    padding: 0 16px;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "montserrat",sans-serif;
+  }
   .LoginBtn{
-    margin:70px auto;
+    margin:7px;
     line-height: 30px;
-    font-size:16px;
-    width:120px;
+    font-size:14px;
     color:#fff;
+    width:100%;
     background-color: #4a8ce2;
-    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.8s;
+  }
+  .LoginBtn:hover{
+    transform: scale(0.96);
   }
   .body-bg{
     background-color: #1d1d23;
