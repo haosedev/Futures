@@ -2,7 +2,7 @@
   <div @contextmenu.prevent="">
         <div class="topbar">
           <div class="title">
-            我是标题
+            神经病股票系统
           </div>
         </div>
       <div class="screen">
