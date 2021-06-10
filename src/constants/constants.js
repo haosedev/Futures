@@ -16,6 +16,11 @@ const Types = {
         CHANGE: 12,
         KEEP:   15,
     },
+    Trade:{
+        LIST:300,
+        CANCEL:301,
+        ENORDER:302,
+    },
     Ping:9,
   };
 
