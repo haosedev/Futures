@@ -226,9 +226,21 @@ html{
     text-decoration: none;
     transition: 0.8s;
   }
-  .LoginBtn:hover{
+  .btnScale:hover{
     transform: scale(0.96);
   }
   .body-bg{
     background-color: #1d1d23;
+  }
+  .pull-left{
+    float:left;
+  }
+  .pull-right{
+    float:right;
+  }
+  .btn{
+    background-color: #4a8ce2;
+    color:#fff;
+    display: inline-block;
+    padding: 0 10px;
   }

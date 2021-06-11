@@ -82,7 +82,7 @@
               <h1>SIGN UP</h1>
               <input type="text" class="input-text" placeholder="账号" v-model="username">
               <input type="text" class="input-text" placeholder="密码" v-model="password">
-              <div class="LoginBtn" @click="doLogin">点我登录</div>
+              <div class="LoginBtn btnScale" @click="doLogin">点我登录</div>
             </div>
           </div>
           <div class="contentBox" v-show="userLogin">
@@ -166,6 +166,7 @@
               <div class="card_header noline">
                 <div class="card-title">
                   挂单信息
+                  <div class="btn pull-right btnScale" >挂单</div>
                 </div>
               </div>
               <div>

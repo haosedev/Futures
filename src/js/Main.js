@@ -218,8 +218,12 @@ export default {
       this.websocketsend(actions);
     },
     doLogin:function(){
-      let actionslogin = [this.cons.Types.User.LOGIN,this.username,this.password]; 
+      let actionslogin = [this.cons.Types.User.LOGIN, this.username,this.password]; 
       this.websocketsend(actionslogin);
     },
+    makeOrder:function(code, price, num){
+      let actionsOrder = [this.cons.Types.Trade.ENORDER, code, price, num];
+      this.websocketsend(actionsOrder)
+    }
   },
 }
