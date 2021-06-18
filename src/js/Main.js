@@ -14,6 +14,10 @@ export default {
       marketInfo:{},
       username:'',
       password:'',
+      OrderWindowVisible: false,
+      MenuPopvisible: false,
+      top: 0,
+      left: 0,
     }
   },
   created() {
@@ -35,7 +39,34 @@ export default {
   destroyed() {
     this.websock.close() // 离开路由之后断开websocket连接
   },
+  watch: {
+    MenuPopvisible(value) {
+      if (value) {
+        document.body.addEventListener('click', this.closePopMenu)
+      } else {
+        document.body.removeEventListener('click', this.closePopMenu)
+      }
+    }
+  },
   methods: {
+    openPopMenu(e) {
+      //console.log('openmenu')
+      const menuMinWidth = 105
+      const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
+      const offsetWidth = this.$el.offsetWidth // container width
+      const maxLeft = offsetWidth - menuMinWidth // left boundary
+      const left = e.clientX - offsetLeft // 15: margin right
+      if (left > maxLeft) {
+        this.left = maxLeft
+      } else {
+        this.left = left + 15
+      }
+      this.top = e.clientY - 15 // fix 位置bug
+      //this.visible = true  //开启右键菜单
+    },
+    closePopMenu() {
+      this.visible = false
+    },
     initWebSocket(){ // 初始化weosocket
       const wsuri = "ws://47.99.245.128:8050";
       this.websock = new WebSocket(wsuri);

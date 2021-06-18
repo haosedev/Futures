@@ -47,7 +47,7 @@
               </tr>
             </thead>
           </table>
-          <table cellspacing="0" cellpadding="0" class="table_body" style="height:700px;">
+          <table cellspacing="0" cellpadding="0" class="table_body" style="height:700px;" @contextmenu.prevent="openPopMenu($event)">
             <colgroup>
               <col width="30">
               <col width="80">
@@ -189,6 +189,20 @@
           </div>
         </div>
       </div>
+      <el-dialog
+        title="新订单"
+        :visible.sync="OrderWindowVisible"
+        width="30%"
+        :before-close="handleClose">
+        <span>这里会加入内容</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
+      <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
+        <li>历史记录</li>
+      </ul>
   </div>
 </template>
 <script>
