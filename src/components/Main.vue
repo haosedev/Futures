@@ -166,7 +166,7 @@
               <div class="card_header noline">
                 <div class="card-title">
                   挂单信息
-                  <div class="btn pull-right btnScale" >挂单</div>
+                  <div class="btn pull-right btnScale" @click="OrderWindowVisible = true">挂单</div>
                 </div>
               </div>
               <div>
@@ -189,17 +189,15 @@
           </div>
         </div>
       </div>
-      <el-dialog
-        title="新订单"
-        :visible.sync="OrderWindowVisible"
-        width="30%"
-        :before-close="handleClose">
-        <span>这里会加入内容</span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-        </span>
-      </el-dialog>
+      <div v-show="OrderWindowVisible" class="mask" @click="maskAni">
+        <div class="dialog dialog-order">
+          <div class="q-bar row no-wrap items-center q-bar--standard">
+            <div>新订单</div>
+            <button type="button" role="button" class="q-btn q-btn-item non-selectable no-outline btn-close q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i  class="q-icon iconfont icon-close"> </i></span></span></button>
+          </div>
+          这里是挂单弹框
+        </div>
+      </div>
       <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
         <li>历史记录</li>
       </ul>
@@ -210,5 +208,6 @@
   export default Main
 </script>
 <style scope>
+  @import '../css/base.css';
   @import '../css/common.css';
 </style>

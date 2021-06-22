@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import {_} from 'vue-underscore';
 export default {
   name : 'Main',
@@ -18,7 +19,7 @@ export default {
       MenuPopvisible: false,
       top: 0,
       left: 0,
-    }
+    };
   },
   created() {
     var self = this;
@@ -34,38 +35,38 @@ export default {
         this.userLogin=false;
         self.initWebSocket(); //重连
       }
-    },3000)
+    },3000);
   },
   destroyed() {
-    this.websock.close() // 离开路由之后断开websocket连接
+    this.websock.close(); // 离开路由之后断开websocket连接
   },
   watch: {
     MenuPopvisible(value) {
       if (value) {
-        document.body.addEventListener('click', this.closePopMenu)
+        document.body.addEventListener('click', this.closePopMenu);
       } else {
-        document.body.removeEventListener('click', this.closePopMenu)
+        document.body.removeEventListener('click', this.closePopMenu);
       }
     }
   },
   methods: {
     openPopMenu(e) {
       //console.log('openmenu')
-      const menuMinWidth = 105
-      const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
-      const offsetWidth = this.$el.offsetWidth // container width
-      const maxLeft = offsetWidth - menuMinWidth // left boundary
-      const left = e.clientX - offsetLeft // 15: margin right
+      const menuMinWidth = 105;
+      const offsetLeft = this.$el.getBoundingClientRect().left; // container margin left
+      const offsetWidth = this.$el.offsetWidth; // container width
+      const maxLeft = offsetWidth - menuMinWidth; // left boundary
+      const left = e.clientX - offsetLeft; // 15: margin right
       if (left > maxLeft) {
-        this.left = maxLeft
+        this.left = maxLeft;
       } else {
-        this.left = left + 15
+        this.left = left + 15;
       }
-      this.top = e.clientY - 15 // fix 位置bug
+      this.top = e.clientY - 15; // fix 位置bug
       //this.visible = true  //开启右键菜单
     },
     closePopMenu() {
-      this.visible = false
+      this.visible = false;
     },
     initWebSocket(){ // 初始化weosocket
       const wsuri = "ws://47.99.245.128:8050";
@@ -173,10 +174,10 @@ export default {
     receiveInfo: function(data) {
         var msg = data[1];     
         //console.log('INFO',msg);
-        if (msg['ud_price']>0) msg['color']='red';
-        else if (msg['ud_price']<0) msg['color']='green';
-        if (msg['isOfferTime']) msg['status']="开盘";
-        else msg['status']="收盘";
+        if (msg.ud_price>0) msg.color='red';
+        else if (msg.ud_price<0) msg.color='green';
+        if (msg['isOfferTime']) msg.status="开盘";
+        else msg.status="收盘";
         this.marketInfo=msg;
         //this.ChangeOffer(msg);
     },
@@ -185,12 +186,12 @@ export default {
       //查找列表
       var isFindID=-1;
       this.datalist.forEach(function(v,i,arr){
-        if (v['code']==data['code']){
+        if (v.code==data.code){
           isFindID=i;
         }
       })
-      if (data['ud_price']>0) data['color']='text-up';
-      else if (data['ud_price']<0) data['color']='text-down';
+      if (data.ud_price>0) data.color='text-up';
+      else if (data.ud_price<0) data.color='text-down';
       if (isFindID===-1){
         this.datalist.push(data);
       }else{
@@ -254,7 +255,10 @@ export default {
     },
     makeOrder:function(code, price, num){
       let actionsOrder = [this.cons.Types.Trade.ENORDER, code, price, num];
-      this.websocketsend(actionsOrder)
-    }
+      this.websocketsend(actionsOrder);
+    },
+    maskAni: function(){
+      console.log('maskAni');
+    },
   },
 }
