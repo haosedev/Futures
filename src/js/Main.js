@@ -176,7 +176,7 @@ export default {
         //console.log('INFO',msg);
         if (msg.ud_price>0) msg.color='red';
         else if (msg.ud_price<0) msg.color='green';
-        if (msg['isOfferTime']) msg.status="开盘";
+        if (msg.isOfferTime) msg.status="开盘";
         else msg.status="收盘";
         this.marketInfo=msg;
         //this.ChangeOffer(msg);

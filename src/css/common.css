@@ -1,9 +1,9 @@
-html{
+  html{
     background-color: #1d1d23;
   }
   body{
     font-family: Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
-    font-size: .75rem;
+    font-size: 14px;
     margin:0;
     -webkit-user-select:none; 
        -moz-user-select:none; 
@@ -250,7 +250,7 @@ html{
     background-color: #FFF;
   }
   .mask{
-    display: block;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -263,8 +263,6 @@ html{
   .dialog{
     display: block;
     position: fixed;
-    top: 50%;
-    left: 50%;
     z-index: 10001;
     pointer-events: all;
     overflow: auto;
@@ -293,12 +291,10 @@ html{
   }
   .dialog-order{
     height:400px;
-    margin-left: -230px;
-    margin-top: -200px;
     background-color: #1b1b1b;
     border: 1px solid #323232;
     border-radius: 0;
-    min-width: 560px;
+    min-width: 550px;
   }
   .dialog-order .q-bar{
     height: 38px;
@@ -306,6 +302,9 @@ html{
     line-height: 38px;
     background-color: #252525;
     padding-right: 0;
+  }
+  .q-space {
+    flex-grow: 1!important;
   }
   .q-btn {
     display: inline-flex;
@@ -329,7 +328,7 @@ html{
   }
   .q-btn.btn-close .q-icon{
     color: #616161;
-    font-size: 14px;
+    font-size: 18px;
   }
   .q-bar>button{
     height: 100%;
@@ -342,4 +341,30 @@ html{
   }
   .q-bar--standard>div {
     font-size: 16px;
+  }
+  .q-btn__wrapper {
+    padding: 4px 16px;
+    min-height: 2.572em;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+  }
+  .ordersection{
+    padding:16px;
+  }
+  .q-form .q-select {
+    height: inherit;
+    min-height: 32px;
+    border-radius: 0;
+  }
+  .q-form .q-select {
+    background-color: #252525;
+    color: #f5f5f5;
+    min-width: 50px!important;
+    flex: 10000 1 0%;
+  }
+  .q-form .q-input {
+    height: 32px;
+    min-height: 32px;
+    padding: 0;
   }

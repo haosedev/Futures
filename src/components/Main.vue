@@ -189,13 +189,34 @@
           </div>
         </div>
       </div>
-      <div v-show="OrderWindowVisible" class="mask" @click="maskAni">
+      <div v-show="OrderWindowVisible" class="mask flex-center" @click="maskAni">
         <div class="dialog dialog-order">
           <div class="q-bar row no-wrap items-center q-bar--standard">
             <div>新订单</div>
-            <button type="button" role="button" class="q-btn q-btn-item non-selectable no-outline btn-close q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i  class="q-icon iconfont icon-close"> </i></span></span></button>
+            <div class="q-space"></div>
+            <button type="button" role="button" class="q-btn q-btn-item btn-close q-focusable q-hoverable"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="text-center items-center justify-center row"><i  class="q-icon iconfont icon-close"> </i></span></span></button>
           </div>
-          这里是挂单弹框
+          <hr aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+          <section class="ordersection">
+            <div class="q-form flex-item">
+              <div class="form-item">
+                <div class="form-item--label flex-text-center">交易方式</div>
+                <div class="form-item--content flex">
+                  <select class="q-select" name="tradeMode">
+                    <option>买入（做多）</option>
+                    <option>卖出（做空）</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-item">
+                <div class="form-item--label flex-text-center">股票代码</div>
+                <div class="form-item--content flex">
+                  <input type="text" class="q-input">
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
       <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">

@@ -1,20 +1,93 @@
   /*  common base  */
-  .flex-center, .items-center {
-    align-items: center;
+  .items-start {
+    align-items: flex-start;
   }
   .no-wrap {
-    flex-wrap: nowrap;
+      flex-wrap: nowrap;
   }
   .column, .flex, .row {
     display: flex;
     flex-wrap: wrap;
   }
+  .column {
+    flex-direction: column;
+  }
+  .flex-center, .items-center {
+    align-items: center;
+  }
   .flex-center, .justify-center {
     justify-content: center;
+  }
+  .justify-between{
+    justify-content: space-between;
   }
   .text-center {
     text-align: center;
   }
-  /*  common base end */
+  .box-text-center{
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+  }
+  .flex-text-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .col, .col-xs {
+    flex: 10000 1 0%;
+  }
 
+ /*  component base */
+  .q-focus-helper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transition: background-color 0.3s cubic-bezier(0.25,0.8,0.5,1),opacity 0.4s cubic-bezier(0.25,0.8,0.5,1);
+  }
+  .q-focusable:focus>.q-focus-helper, .q-hoverable:hover>.q-focus-helper, .q-manual-focusable--focused>.q-focus-helper {
+    background: currentColor;
+    opacity: 0.15;
+  }
+
+  .q-separator--horizontal {
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+  .q-separator {
+    border: 0;
+    background: #323232;
+    margin: 0;
+    transition: background 0.3s,opacity 0.3s;
+  }
+
+  /* form-items */
+  .flex-item .form-item {
+    display: flex;
+  }
+  .q-form .form-item, .q-form dl {
+    height: auto;
+  }
+  .q-form .form-item--label, .q-form .form-item dt, .q-form dl--label, .q-form dl dt {
+    color: #616161;
+  }
+  .flex-item .form-item--label, .flex-item .form-item dt, .flex-item dl--label, .flex-item dl dt {
+      width: 100px;
+  }
+  .flex-item .form-item--content, .flex-item .form-item dd, .flex-item dl--content, .flex-item dl dd {
+    flex: 1;
+  }
+  .q-form .form-item--content, .q-form .form-item dd, .q-form dl--content, .q-form dl dd {
+      color: inherit;
+  }
+  .q-select .q-field__input {
+    min-width: 50px!important;
+  }
