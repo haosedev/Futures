@@ -1,7 +1,10 @@
 /* jshint esversion: 6 */
 import {_} from 'vue-underscore';
+import orderWindow from '../common/view/orderWindow';
+
 export default {
   name : 'Main',
+  components:{ orderWindow, },
   data() {
     return {
       websock: null,
@@ -67,6 +70,9 @@ export default {
     },
     closePopMenu() {
       this.visible = false;
+    },
+    closeOrderDialog(){
+      this.OrderWindowVisible=false;
     },
     initWebSocket(){ // 初始化weosocket
       const wsuri = "ws://47.99.245.128:8050";
@@ -256,9 +262,6 @@ export default {
     makeOrder:function(code, price, num){
       let actionsOrder = [this.cons.Types.Trade.ENORDER, code, price, num];
       this.websocketsend(actionsOrder);
-    },
-    maskAni: function(){
-      console.log('maskAni');
     },
   },
 }

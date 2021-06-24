@@ -4,6 +4,7 @@
   body{
     font-family: Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
     font-size: 14px;
+    -webkit-font-smoothing: antialiased; /*chrome、safari*/
     margin:0;
     -webkit-user-select:none; 
        -moz-user-select:none; 
@@ -423,4 +424,16 @@
     transform: scale3d(1,1,1);
     transform-origin: center bottom;
     transition: transform 0.36s cubic-bezier(0.4,0,0.2,1);
+  }
+  /* price change */
+  .chg-live-text, .live-text {
+    transition: all 0.5s ease-out 0.05s;
+  }
+  .zh-hans .live-up {
+    background-color: rgba(198,122,120,0.2);
+  }
+  .chg-live-text {
+    padding: 2px 3px;
+    min-width: 65px;
+    text-align: right;
   }
