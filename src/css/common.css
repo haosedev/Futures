@@ -398,8 +398,11 @@
     display: flex;
     align-items: center;
   }
-  .trade-status-icon--0:after, .trade-status-icon--0:before, .trade-status-icon--3:after, .trade-status-icon--3:before {
-      background: #21ba45!important;
+  .trade-status-icon--1:after, .trade-status-icon--1:before, .trade-status-icon--3:after, .trade-status-icon--3:before {
+    background: #21ba45!important;
+  }
+  .trade-status-icon--0:after, .trade-status-icon--0:before {
+    background: #d32f2f!important;
   }
   .trade-status-icon.align-left:before, .trade-status-icon.align-right:after {
     content: " ";

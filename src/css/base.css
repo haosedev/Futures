@@ -182,3 +182,15 @@
   .q-form .q-field__control:after {
     background: #2196f3;
   } */
+
+  /* ----------------animate--------------- */
+  .q-animate--scale {
+    -webkit-animation: q-scale 0.15s;
+    animation: q-scale 0.15s;
+    -webkit-animation-timing-function: cubic-bezier(0.25,0.8,0.25,1);
+    animation-timing-function: cubic-bezier(0.25,0.8,0.25,1);
+  }
+  .q-animate--fade {
+    -webkit-animation: q-fade 0.2s;
+    animation: q-fade 0.2s;
+  }

@@ -14,7 +14,7 @@
           </div>
           <div class="card_header noline">
             <div class="card-title">
-            状态：<span class="td2">{{marketInfo.status}}</span>，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
+            状态：<span class="td2">{{marketStatus}}</span>，大盘指数：<span :class="marketInfo.color">{{marketInfo.now_price|toYuan}}</span>，涨跌：<span :class="marketInfo.color">{{marketInfo.ud_price|toYuan}}</span>，涨幅：<span :class="marketInfo.color">{{marketInfo.ud_precent|toYuan}}%</span>
             </div>
           </div>
           <table cellspacing="0" cellpadding="0" class="table_head">
@@ -189,7 +189,7 @@
           </div>
         </div>
       </div>
-      <orderWindow v-show="OrderWindowVisible" @closeDialog="closeOrderDialog" :datalist="datalist"></orderWindow>
+      <orderWindow v-show="OrderWindowVisible" @closeDialog="closeOrderDialog" :datalist="datalist" :keeplist="keeplist" :marketStatus="marketInfo.status" :myMoney="userInfo.money"></orderWindow>
       <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
         <li>历史记录</li>
       </ul>

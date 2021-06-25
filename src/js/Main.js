@@ -182,8 +182,8 @@ export default {
         //console.log('INFO',msg);
         if (msg.ud_price>0) msg.color='red';
         else if (msg.ud_price<0) msg.color='green';
-        if (msg.isOfferTime) msg.status="开盘";
-        else msg.status="收盘";
+        if (msg.isOfferTime) msg.status=1;
+        else msg.status=0;
         this.marketInfo=msg;
         //this.ChangeOffer(msg);
     },
@@ -263,5 +263,12 @@ export default {
       let actionsOrder = [this.cons.Types.Trade.ENORDER, code, price, num];
       this.websocketsend(actionsOrder);
     },
+  },
+  computed:{
+    marketStatus: {
+      get: function () {
+        return this.marketInfo.status==1? '开盘':'收盘';
+      }
+    }
   },
 }

@@ -19,7 +19,7 @@ const Types = {
     Trade:{
         LIST:300,
         CANCEL:301,
-        ENORDER:302,
+        ENORDER:310,
     },
     Ping:9,
   };
