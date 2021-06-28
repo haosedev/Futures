@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div v-show="panelShow">
     <div class="mask flex-center" @click.self="maskAni">
+      <transition name="slide-fade">
       <div class="dialog dialog-order" >
         <div class="q-bar row no-wrap items-center q-bar--standard">
           <div>新订单</div>
@@ -32,7 +33,7 @@
                 <div class="form-line--label flex flex-text-v-center">股票代码</div>
                 <div class="flex1 q-field__control relative">
                   <div class="form-line--content flex">
-                    <input type="text" name="code" v-model="wantCode" autocomplete="off" class="q-inputbox inputfocus">
+                    <input type="text" name="code" v-model="wantCode" autocomplete="off" class="q-inputbox inputfocus" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
                   </div>
                 </div>                  
               </div>
@@ -46,7 +47,7 @@
                 <div class="form-line--label flex flex-text-v-center">成交单价</div>
                 <div class="flex1 q-field__control relative">
                   <div class="form-line--content flex">
-                    <input type="text" name="price" autocomplete="off" v-model="showWantPrice" class="q-inputbox inputfocus">
+                    <input type="text" name="price" autocomplete="off" v-model="showWantPrice" class="q-inputbox inputfocus" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')">
                   </div>
                 </div>                  
               </div>
@@ -60,7 +61,7 @@
                 <div class="form-line--label flex flex-text-v-center">订单数量</div>
                 <div class="flex1 q-field__control relative">
                   <div class="form-line--content flex">
-                    <input type="text" name="num" autocomplete="off" v-model="wantNum" class="q-inputbox inputfocus">
+                    <input type="text" name="num" autocomplete="off" v-model="wantNum" class="q-inputbox inputfocus" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
                   </div>
                 </div>                  
               </div>
@@ -114,6 +115,7 @@
           </button>
         </section>
       </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -124,11 +126,11 @@ export default {
   data () {
     return {
       tradeMode:1,
-      wantCode: 0,    //选择中的号码
+      wantCode: ' ',    //选择中的号码
       selectCode: 0,  //选中的股票
       nowPrice: 0,    //当前最新报价
       maxUse: 0,      //最大可操作数量
-      wantPrice: 0,   //期望成交价
+      wantPrice: ' ',   //期望成交价
       wantNum: 0,     //期望成交数量
       wantCodeErr:{status:false, msg:'股票代码异常！'},
       wantPriceErr:{status:false, msg:'价格设置异常！'},
@@ -138,6 +140,9 @@ export default {
     }
   },
   props: {
+    panelShow: {
+        type: Boolean
+    },
     datalist: Array,
     keeplist: Array,
     marketStatus: Number,
@@ -147,6 +152,15 @@ export default {
     console.log('orderWindow',this.hero)
   },
   methods:{
+    clear:function(){
+      this.tradeMode=1
+      this.wantCode = ''   //选择中的号码
+      this.selectCode = 0  //选中的股票
+      this.nowPrice = 0    //当前最新报价
+      this.maxUse= 0      //最大可操作数量
+      this.wantPrice=''   //期望成交价
+      this.wantNum= 0     //期望成交数量
+    },
     reDraw: function(){
       let self=this
       if (this.selectCode.length==5){
@@ -164,7 +178,7 @@ export default {
     },
     closeWindow: function(){
       console.log('closeWindow');
-      this.$emit("closeDialog",);
+      this.$emit('update:panelShow', false)     //利用sync双向绑定由内而外修改数据
     },
     findcode: function(code){
       if (code.length==5){
@@ -201,6 +215,8 @@ export default {
       if (ret){
         console.log('数据正常，可以提交！')
       }
+      //** 向父组件提交数据 */
+
     },
   },
   computed:{
@@ -240,6 +256,11 @@ export default {
     }
   },
   watch:{
+    panelShow(){
+      if (this.panelShow==true){
+        this.clear();
+      }
+    },
     wantCode(val){
       this.findcode(val);
       this.wantCodeErr.status=false;

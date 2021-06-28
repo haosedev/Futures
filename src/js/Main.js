@@ -71,9 +71,6 @@ export default {
     closePopMenu() {
       this.visible = false;
     },
-    closeOrderDialog(){
-      this.OrderWindowVisible=false;
-    },
     initWebSocket(){ // 初始化weosocket
       const wsuri = "ws://47.99.245.128:8050";
       this.websock = new WebSocket(wsuri);
