@@ -191,7 +191,7 @@
       </div> 
       <orderWindow :panelShow.sync="OrderWindowVisible" :datalist="datalist" :keeplist="keeplist" :marketStatus="marketInfo.status" :myMoney="userInfo.money"></orderWindow>
       <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
-        <li>历史记录</li>
+        <li>历史记录1</li>
       </ul>
   </div>
 </template>
