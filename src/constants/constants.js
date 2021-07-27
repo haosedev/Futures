@@ -1,29 +1,29 @@
 const Types = {
     Messages: {
-        SYSTEM: 0,
-        HELLO: 1,
-        WELCOME: 2,
-        MESSAGE: 3,
+      SYSTEM: 0,
+      HELLO: 1,
+      WELCOME: 2,
+      MESSAGE: 3,
     },
     User:{
-        LOGIN: 4,
-        LOGIN_ANSWER: 5,
-        INFO:  6,
+      LOGIN: 4,
+      LOGIN_ANSWER: 5,
+      INFO:  6,
     },
     Market:{
-        INFO:  10,
-        OFFER: 11,
-        CHANGE: 12,
-        KEEP:   15,
+      INFO:  10,
+      OFFER: 11,
+      CHANGE: 12,
+      KEEP:   15,
     },
     Trade:{
-        LIST:300,
-        CANCEL:301,
-        ENORDER:310,
+      LIST:300,
+      CANCEL:301,
+      ENORDER:310,
     },
     Ping:9,
   };
 
   export default{
-      Types
+    Types
   }
