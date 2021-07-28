@@ -209,7 +209,7 @@ export default {
          this.datalist[isFindID]['color'] = data['color'];
         }
       }
-      this.reFreashKeep(data);
+      this.reFreshKeep(data);
       //***变化的这条需要给个动画
     },
     receiveKeep: function(data) {
@@ -235,7 +235,7 @@ export default {
           this.keeplist.splice(isFindID,1);
       }
     },
-    reFreashKeep:function(data){
+    reFreshKeep:function(data){
       var isFindID=-1;
       this.keeplist.forEach(function(v,i,arr){
         if (v['code']==data['code']){
@@ -256,8 +256,9 @@ export default {
       let actionslogin = [this.cons.Types.User.LOGIN, this.username,this.password]; 
       this.websocketsend(actionslogin);
     },
-    makeOrder:function(code, price, num){
-      let actionsOrder = [this.cons.Types.Trade.ENORDER, code, price, num];
+    makeOrder:function(mode, code, price, num){
+      console.log('makeOrder to server', mode, code , price, num);
+      let actionsOrder = [this.cons.Types.Trade.ENORDER, mode, code, price, num];
       this.websocketsend(actionsOrder);
     },
   },

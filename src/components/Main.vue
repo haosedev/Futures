@@ -174,6 +174,7 @@
             <div>
               <table cellspacing="0" cellpadding="0" class="table_head">
                 <tr>
+                  <th width="150"><div class="cell">时间</div></th>
                   <th width="80"><div class="cell">类别</div></th>
                   <th width="80"><div class="cell">代码</div></th>
                   <th width="100"><div class="cell">名称</div></th>
@@ -183,6 +184,7 @@
                   <th width="80"><div class="cell">状态</div></th>
                 </tr>
                 <tr>
+                  <td class=""><div class="cell">time</div></td>
                   <td class=""><div class="cell">买入/卖出</div></td>
                   <td class=""><div class="cell"></div></td>
                   <td class=""><div class="cell"></div></td>
@@ -197,7 +199,7 @@
         </div>
       </div>
     </div> 
-    <orderWindow :panelShow.sync="OrderWindowVisible" :datalist="datalist" :keeplist="keeplist" :marketStatus="marketInfo.status" :myMoney="userInfo.money"></orderWindow>
+    <orderWindow @makeOrder="makeOrder" :panelShow.sync="OrderWindowVisible" :datalist="datalist" :keeplist="keeplist" :marketStatus="marketInfo.status" :myMoney="userInfo.money"></orderWindow>
     <ul v-show="MenuPopvisible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <li>历史记录1</li>
     </ul>

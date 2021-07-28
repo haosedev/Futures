@@ -18,7 +18,7 @@
                   <div class="form-item--content flex">
                     <select class="q-inputbox inputfocus" name="tradeMode" v-model="tradeMode">
                       <option value="1">买入（做多）</option>
-                      <option value="0">卖出（做空）</option>
+                      <option value="-1">卖出（做空）</option>
                     </select>
                   </div>
                 </div>                  
@@ -95,7 +95,7 @@
           </div>
           <div class="form-item">
             <div class="form-line">
-              <button class="q-btn q-btn-item non-selectable no-outline full-width btn-close-price q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" :class="color">
+              <button class="q-btn q-btn-item non-selectable no-outline full-width btn-close-price q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" :class="color" @click="resetPrice">
                 <span class="q-focus-helper" tabindex="-1"></span>
                 <span class="q-btn__wrapper min-hei-wid col row q-anchor--skip">
                   <span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -180,6 +180,11 @@ export default {
       console.log('closeWindow');
       this.$emit('update:panelShow', false)     //利用sync双向绑定由内而外修改数据
     },
+    resetPrice: function(e){
+      console.log('resetPrice')
+      this.wantPrice = this.nowPrice
+      console.log(e)
+    },
     findcode: function(code){
       if (code.length==5){
         let self=this
@@ -214,9 +219,10 @@ export default {
       }
       if (ret){
         console.log('数据正常，可以提交！')
+        //** 向父组件提交数据 */
+        this.$emit("makeOrder", this.tradeMode, this.wantCode, this.wantPrice, this.wantNum);
+        this.closeWindow();
       }
-      //** 向父组件提交数据 */
-
     },
   },
   computed:{
@@ -240,7 +246,7 @@ export default {
           //买入，计算金额可以买入多少
           if (this.wantPrice>0)
             this.maxUse = parseInt(this.myMoney/this.wantPrice)
-        }else if (this.tradeMode==0){
+        }else if (this.tradeMode==-1){
           //卖出，计算持仓有多少库存
           if ((this.wantCode.length==5)&&(this.selectCode==this.wantCode)){
             let self= this
