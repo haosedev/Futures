@@ -2,7 +2,7 @@
   <div @contextmenu.prevent="">
     <div class="topbar">
       <div class="title">
-        神经病股票系统
+        模拟股票系统
       </div>
     </div>
     <div class="screen">
@@ -100,6 +100,7 @@
                   <th width="120"><div class="cell">余额</div></th>
                   <th width="120"><div class="cell">冻结中</div></th>
                   <th width="150"><div class="cell">最后登录时间</div></th>
+                  <th width="60"><div class="cell">操作</div></th>
                 </tr>
                 <tr>
                   <td class=""><div class="cell">{{userInfo.username}}</div></td>
@@ -107,6 +108,7 @@
                   <td class=""><div class="cell">{{userInfo.money|toYuan}}</div></td>
                   <td class=""><div class="cell">{{userInfo.money_freeze|toYuan}}</div></td>
                   <td class=""><div class="cell">{{userInfo.login_time}}</div></td>
+                  <td class=""><div class="cell"><div class="btn red btnScale" @click="doLogout">退出</div></div></td>
                 </tr>
               </table>
             </div>

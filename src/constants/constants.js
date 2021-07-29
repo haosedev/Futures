@@ -9,6 +9,7 @@ const Types = {
       LOGIN: 4,
       LOGIN_ANSWER: 5,
       INFO:  6,
+      LOGOUT:  7,
     },
     Market:{
       INFO:  10,

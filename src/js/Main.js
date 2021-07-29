@@ -256,6 +256,11 @@ export default {
       let actionslogin = [this.cons.Types.User.LOGIN, this.username,this.password]; 
       this.websocketsend(actionslogin);
     },
+    doLogout:function(){
+      this.userLogin=false;
+      let actionslogout = [this.cons.Types.User.LOGOUT]; 
+      this.websocketsend(actionslogout);
+    },
     makeOrder:function(mode, code, price, num){
       console.log('makeOrder to server', mode, code , price, num);
       let actionsOrder = [this.cons.Types.Trade.ENORDER, mode, code, price, num];

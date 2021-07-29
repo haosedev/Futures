@@ -246,6 +246,10 @@
     display: inline-block;
     padding: 0 10px;
   }
+  .btn.red{
+    background-color: #f12929;
+    color:#fff;
+  }
   .contextmenu{
     position: absolute;
     background-color: #FFF;
