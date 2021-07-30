@@ -100,7 +100,7 @@
                   <th width="120"><div class="cell">余额</div></th>
                   <th width="120"><div class="cell">冻结中</div></th>
                   <th width="150"><div class="cell">最后登录时间</div></th>
-                  <th width="60"><div class="cell">操作</div></th>
+                  <th width="100"><div class="cell">操作</div></th>
                 </tr>
                 <tr>
                   <td class=""><div class="cell">{{userInfo.username}}</div></td>
@@ -134,10 +134,10 @@
                 <tr>
                   <th class="cell-name is-leaf"><div class="cell">代码</div></th>
                   <th class="cell-name is-leaf"><div class="cell">名称</div></th>
-                  <th class="is-leaf"><div class="cell">买入价</div></th>
+                  <th class="is-leaf"><div class="cell">买入均价</div></th>
                   <th class="is-leaf"><div class="cell">持仓</div></th>
                   <th class="is-leaf"><div class="cell">当前价</div></th>
-                  <th class="is-leaf"><div class="cell">总价值</div></th>
+                  <th class="is-leaf"><div class="cell">当前市值</div></th>
                   <th class="is-leaf"><div class="cell">盈亏</div></th>
                   <th class="gutter" style="border-right: 0px;background-color:#1d1d23;"></th>
                 </tr>
@@ -181,19 +181,17 @@
                   <th width="80"><div class="cell">代码</div></th>
                   <th width="100"><div class="cell">名称</div></th>
                   <th width="80"><div class="cell">挂单价</div></th>
-                  <th width="80"><div class="cell">已成交</div></th>
-                  <th width="100"><div class="cell">挂单数</div></th>
-                  <th width="80"><div class="cell">状态</div></th>
+                  <th width="80"><div class="cell">待成交</div></th>
+                  <th width="80"><div class="cell">操作</div></th>
                 </tr>
-                <tr>
-                  <td class=""><div class="cell">time</div></td>
-                  <td class=""><div class="cell">买入/卖出</div></td>
-                  <td class=""><div class="cell"></div></td>
-                  <td class=""><div class="cell"></div></td>
-                  <td class=""><div class="cell"></div></td>
-                  <td class=""><div class="cell"></div></td>
-                  <td class=""><div class="cell"></div></td>
-                  <td class=""><div class="cell">挂单/完结</div></td>
+                <tr v-for="(vo, index) in orderlist" :key="index">
+                  <td class=""><div class="cell">{{vo.time}}</div></td>
+                  <td class=""><div class="cell">{{vo.mode|mode2str}}</div></td>
+                  <td class=""><div class="cell">{{vo.code}}</div></td>
+                  <td class=""><div class="cell">{{vo.name}}</div></td>
+                  <td class=""><div class="cell">{{vo.price|toYuan}}</div></td>
+                  <td class=""><div class="cell">{{vo.surplus}}</div></td>
+                  <td class=""><div class="cell"><div class="btn red btnScale">取消</div></div></td>
                 </tr>
               </table>
             </div>

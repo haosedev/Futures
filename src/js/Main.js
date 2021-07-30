@@ -14,6 +14,7 @@ export default {
       handlers:[],
       datalist:[],
       keeplist:[],
+      orderlist:[],
       userInfo:[],
       marketInfo:{},
       username:'',
@@ -35,7 +36,7 @@ export default {
           self.SendPing();
         }
       }else if (self.websock.readyState===3){
-        this.userLogin=false;
+        this.resetCache();
         self.initWebSocket(); //重连
       }
     },3000);
@@ -88,6 +89,7 @@ export default {
       this.handlers[this.cons.Types.Market.OFFER] = this.receiveMOffer;
       this.handlers[this.cons.Types.Market.CHANGE] = this.receiveMChange;
       this.handlers[this.cons.Types.Market.KEEP] = this.receiveKeep;
+      this.handlers[this.cons.Types.Market.ORDERS] = this.receiveOrders;
     },
     websocketonopen(){ // 连接建立之后执行send方法发送数据
       let actions = [this.cons.Types.Messages.HELLO]; 
@@ -215,49 +217,67 @@ export default {
     receiveKeep: function(data) {
         var msg = data[1];     
         console.log('KEEP',msg);
-        this.FillKeep(msg);
-    },
-    FillKeep: function(data){
-      //查找列表
-      var isFindID=-1;
-      this.keeplist.forEach(function(v,i,arr){
-        if (v['code']==data['code']){
-          isFindID=i;
-        }
-      })
-      if (isFindID===-1){
-        if (data['num']>0)
-          this.keeplist.push(data);
-      }else{
-        if (data['num']>0)
-          this.keeplist.splice(isFindID,1,data);
+        //this.FillKeep(msg);
+        if (data[1]==null)
+          this.keeplist=[];
         else
-          this.keeplist.splice(isFindID,1);
-      }
+          this.keeplist=data[1];
     },
+    receiveOrders: function (data){
+      console.log('ORDERS',data[1]);
+      if (data[1]==null)
+        this.orderlist=[];
+      else
+        this.orderlist=data[1];
+    },
+    // FillKeep: function(data){       //作废
+    //   //查找列表
+    //   var isFindID=-1;
+    //   this.keeplist.forEach(function(v,i,arr){
+    //     if (v['code']==data['code']){
+    //       isFindID=i;
+    //     }
+    //   })
+    //   if (isFindID===-1){
+    //     if (data['num']>0)
+    //       this.keeplist.push(data);
+    //   }else{
+    //     if (data['num']>0)
+    //       this.keeplist.splice(isFindID,1,data);
+    //     else
+    //       this.keeplist.splice(isFindID,1);
+    //   }
+    // },
     reFreshKeep:function(data){
-      var isFindID=-1;
-      this.keeplist.forEach(function(v,i,arr){
-        if (v['code']==data['code']){
-          v['now_price'] = data['now_price'];
-          v['all_price'] = data['now_price']*v['num'];
-          v['ud_price'] = (data['now_price']-v['price'])*v['num'];
-          if (v['ud_price']>0) v['color']='text-up';
-          else if (v['ud_price']<0) v['color']='text-down';
-        }
-      })
+      if ((this.keeplist != null) && (this.keeplist.length>0)){
+        this.keeplist.forEach(function(v,i,arr){
+          if (v['code']==data['code']){
+            v['now_price'] = data['now_price'];
+            v['all_price'] = data['now_price']*v['num'];
+            v['ud_price'] = v['buy_money']-(v['now_price']*v['num']);
+            if (v['ud_price']>0) v['color']='text-up';
+            else if (v['ud_price']<0) v['color']='text-down';
+          }
+        })
+      }
     },
     //**定时发送Ping */
     SendPing:function (){
       let actions = [this.cons.Types.Ping]; 
       this.websocketsend(actions);
     },
+    resetCache:function(){
+      this.userLogin=false;
+      this.keeplist=[];
+      this.orderlist=[];
+      this.userInfo=[];
+    },
     doLogin:function(){
       let actionslogin = [this.cons.Types.User.LOGIN, this.username,this.password]; 
       this.websocketsend(actionslogin);
     },
     doLogout:function(){
-      this.userLogin=false;
+      console.log('dologout');
       let actionslogout = [this.cons.Types.User.LOGOUT]; 
       this.websocketsend(actionslogout);
     },
