@@ -4,7 +4,7 @@
       <transition name="slide-fade">
       <div class="dialog dialog-order" >
         <div class="q-bar row no-wrap items-center q-bar--standard">
-          <div>新订单</div>
+          <div>新订单 {{wantPrice}}</div>
           <div class="q-space"></div>
           <button type="button" role="button" class="q-btn q-btn-item btn-close q-focusable q-hoverable" @click="closeWindow"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="text-center items-center justify-center row"><i class="q-icon iconfont icon-close"></i></span></span></button>
         </div>
@@ -228,10 +228,10 @@ export default {
   computed:{
     showWantPrice: {
       get: function () {
-        return this.$options.filters['toYuanNumber'] (this.wantPrice );
+        return this.$options.filters['toYuanNumber'] ( this.wantPrice );
       },
       set: function (value) {
-        this.wantPrice = parseInt(value * 100)
+        this.wantPrice = (value * 100).toFixed(0);
         if (this.wantPrice>0){
           this.wantPriceErr.status=false;
         }else{

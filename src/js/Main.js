@@ -36,7 +36,7 @@ export default {
           self.SendPing();
         }
       }else if (self.websock.readyState===3){
-        this.resetCache();
+        //this.resetCache();
         self.initWebSocket(); //重连
       }
     },3000);
@@ -267,17 +267,18 @@ export default {
       this.websocketsend(actions);
     },
     resetCache:function(){
-      this.userLogin=false;
       this.keeplist=[];
       this.orderlist=[];
       this.userInfo=[];
     },
     doLogin:function(){
+      this.resetCache();
       let actionslogin = [this.cons.Types.User.LOGIN, this.username,this.password]; 
       this.websocketsend(actionslogin);
     },
     doLogout:function(){
       console.log('dologout');
+      this.userLogin=false;
       let actionslogout = [this.cons.Types.User.LOGOUT]; 
       this.websocketsend(actionslogout);
     },
