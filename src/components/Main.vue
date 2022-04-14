@@ -125,9 +125,10 @@
                 <col width="100">
                 <col width="80">
                 <col width="80">
+                <col width="80">
+                <col width="80">
                 <col width="100">
-                <col width="100">
-                <col width="100">
+                <col width="150">
                 <col />
               </colgroup>
               <thead>
@@ -136,6 +137,7 @@
                   <th class="cell-name is-leaf"><div class="cell">名称</div></th>
                   <th class="is-leaf"><div class="cell">买入均价</div></th>
                   <th class="is-leaf"><div class="cell">持仓</div></th>
+                  <th class="is-leaf"><div class="cell">冻结</div></th>
                   <th class="is-leaf"><div class="cell">当前价</div></th>
                   <th class="is-leaf"><div class="cell">当前市值</div></th>
                   <th class="is-leaf"><div class="cell">盈亏</div></th>
@@ -149,9 +151,10 @@
                 <col width="100">
                 <col width="80">
                 <col width="80">
+                <col width="80">
+                <col width="80">
                 <col width="100">
-                <col width="100">
-                <col width="100">
+                <col width="150">
               </colgroup>
               <tbody>
                 <tr v-for="(vo, index) in keeplist" :key="index">
@@ -159,6 +162,7 @@
                   <td class="cell-name td4"><div class="cell">{{vo.name}}</div></td>
                   <td class="td7"><div class="cell">{{vo.price|toYuan}}</div></td>
                   <td class="td7"><div class="cell">{{vo.num}}</div></td>
+                  <td class="td7"><div class="cell">{{vo.freeze}}</div></td>
                   <td class="td5"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.now_price|toYuan}}</span></div></td>
                   <td class="td6"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.all_price|toYuan}}</span></div></td>
                   <td class="td7"><div class="cell"><span class="transform-value" :class="vo.color">{{vo.ud_price|toYuan}}</span></div></td>
