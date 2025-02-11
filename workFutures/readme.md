@@ -1,7 +1,7 @@
 #测试workerman开发
 安装方式
 composer install
-composer require workerman/mysql
+//composer require workerman/mysql 以后使用 Think-orm代替
 
 
 

@@ -1,0 +1,887 @@
+2025-02-11 13:18:25 pid:24609 Workerman[start.php] start in DEBUG mode
+2025-02-11 13:18:25 pid:24610 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(539): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#10 {main}
+2025-02-11 13:18:25 pid:24611 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(539): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#10 {main}
+2025-02-11 13:18:25 pid:24612 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(539): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#10 {main}
+2025-02-11 13:18:25 pid:24613 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(539): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#10 {main}
+2025-02-11 13:18:26 pid:24610 Worker[24610] process terminated
+2025-02-11 13:18:26 pid:24611 Worker[24611] process terminated
+2025-02-11 13:18:26 pid:24609 worker[ChatBusinessWorker:24610] exit with status 64000
+2025-02-11 13:18:26 pid:24612 Worker[24612] process terminated
+2025-02-11 13:18:26 pid:24609 worker[ChatBusinessWorker:24611] exit with status 64000
+2025-02-11 13:18:26 pid:24613 Worker[24613] process terminated
+2025-02-11 13:18:26 pid:24609 worker[ChatBusinessWorker:24612] exit with status 64000
+2025-02-11 13:18:26 pid:24609 worker[ChatBusinessWorker:24613] exit with status 64000
+2025-02-11 13:18:26 pid:24635 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:26 pid:24634 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:26 pid:24636 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:26 pid:24633 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:27 pid:24635 Worker[24635] process terminated
+2025-02-11 13:18:27 pid:24609 worker[ChatBusinessWorker:24635] exit with status 64000
+2025-02-11 13:18:27 pid:24634 Worker[24634] process terminated
+2025-02-11 13:18:27 pid:24633 Worker[24633] process terminated
+2025-02-11 13:18:27 pid:24636 Worker[24636] process terminated
+2025-02-11 13:18:27 pid:24609 worker[ChatBusinessWorker:24634] exit with status 64000
+2025-02-11 13:18:27 pid:24609 worker[ChatBusinessWorker:24633] exit with status 64000
+2025-02-11 13:18:27 pid:24609 worker[ChatBusinessWorker:24636] exit with status 64000
+2025-02-11 13:18:27 pid:24652 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:27 pid:24653 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:27 pid:24654 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:27 pid:24655 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:28 pid:24652 Worker[24652] process terminated
+2025-02-11 13:18:28 pid:24653 Worker[24653] process terminated
+2025-02-11 13:18:28 pid:24609 worker[ChatBusinessWorker:24652] exit with status 64000
+2025-02-11 13:18:28 pid:24654 Worker[24654] process terminated
+2025-02-11 13:18:28 pid:24655 Worker[24655] process terminated
+2025-02-11 13:18:28 pid:24609 worker[ChatBusinessWorker:24653] exit with status 64000
+2025-02-11 13:18:28 pid:24609 worker[ChatBusinessWorker:24654] exit with status 64000
+2025-02-11 13:18:28 pid:24609 worker[ChatBusinessWorker:24655] exit with status 64000
+2025-02-11 13:18:28 pid:24691 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:28 pid:24690 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:28 pid:24693 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:28 pid:24692 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:29 pid:24691 Worker[24691] process terminated
+2025-02-11 13:18:29 pid:24690 Worker[24690] process terminated
+2025-02-11 13:18:29 pid:24609 worker[ChatBusinessWorker:24691] exit with status 64000
+2025-02-11 13:18:29 pid:24609 worker[ChatBusinessWorker:24690] exit with status 64000
+2025-02-11 13:18:29 pid:24693 Worker[24693] process terminated
+2025-02-11 13:18:29 pid:24692 Worker[24692] process terminated
+2025-02-11 13:18:29 pid:24609 worker[ChatBusinessWorker:24693] exit with status 64000
+2025-02-11 13:18:29 pid:24609 worker[ChatBusinessWorker:24692] exit with status 64000
+2025-02-11 13:18:29 pid:24709 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:29 pid:24712 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:29 pid:24711 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:29 pid:24710 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:30 pid:24709 Worker[24709] process terminated
+2025-02-11 13:18:30 pid:24609 worker[ChatBusinessWorker:24709] exit with status 64000
+2025-02-11 13:18:30 pid:24712 Worker[24712] process terminated
+2025-02-11 13:18:30 pid:24711 Worker[24711] process terminated
+2025-02-11 13:18:30 pid:24710 Worker[24710] process terminated
+2025-02-11 13:18:30 pid:24609 worker[ChatBusinessWorker:24710] exit with status 64000
+2025-02-11 13:18:30 pid:24609 worker[ChatBusinessWorker:24711] exit with status 64000
+2025-02-11 13:18:30 pid:24730 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:30 pid:24609 worker[ChatBusinessWorker:24712] exit with status 64000
+2025-02-11 13:18:30 pid:24732 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:30 pid:24733 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:30 pid:24731 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:31 pid:24730 Worker[24730] process terminated
+2025-02-11 13:18:31 pid:24609 worker[ChatBusinessWorker:24730] exit with status 64000
+2025-02-11 13:18:31 pid:24732 Worker[24732] process terminated
+2025-02-11 13:18:31 pid:24733 Worker[24733] process terminated
+2025-02-11 13:18:31 pid:24609 worker[ChatBusinessWorker:24732] exit with status 64000
+2025-02-11 13:18:31 pid:24731 Worker[24731] process terminated
+2025-02-11 13:18:31 pid:24609 worker[ChatBusinessWorker:24733] exit with status 64000
+2025-02-11 13:18:31 pid:24766 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:31 pid:24609 worker[ChatBusinessWorker:24731] exit with status 64000
+2025-02-11 13:18:31 pid:24768 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:31 pid:24767 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:31 pid:24769 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:32 pid:24766 Worker[24766] process terminated
+2025-02-11 13:18:32 pid:24609 worker[ChatBusinessWorker:24766] exit with status 64000
+2025-02-11 13:18:32 pid:24768 Worker[24768] process terminated
+2025-02-11 13:18:32 pid:24785 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:32 pid:24767 Worker[24767] process terminated
+2025-02-11 13:18:32 pid:24609 worker[ChatBusinessWorker:24768] exit with status 64000
+2025-02-11 13:18:32 pid:24769 Worker[24769] process terminated
+2025-02-11 13:18:32 pid:24609 worker[ChatBusinessWorker:24767] exit with status 64000
+2025-02-11 13:18:32 pid:24609 worker[ChatBusinessWorker:24769] exit with status 64000
+2025-02-11 13:18:32 pid:24787 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:32 pid:24788 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:32 pid:24786 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:33 pid:24785 Worker[24785] process terminated
+2025-02-11 13:18:33 pid:24609 worker[ChatBusinessWorker:24785] exit with status 64000
+2025-02-11 13:18:33 pid:24787 Worker[24787] process terminated
+2025-02-11 13:18:33 pid:24818 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:33 pid:24609 worker[ChatBusinessWorker:24787] exit with status 64000
+2025-02-11 13:18:33 pid:24788 Worker[24788] process terminated
+2025-02-11 13:18:33 pid:24786 Worker[24786] process terminated
+2025-02-11 13:18:33 pid:24609 worker[ChatBusinessWorker:24786] exit with status 64000
+2025-02-11 13:18:33 pid:24609 worker[ChatBusinessWorker:24788] exit with status 64000
+2025-02-11 13:18:33 pid:24821 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:33 pid:24822 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:33 pid:24820 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:34 pid:24818 Worker[24818] process terminated
+2025-02-11 13:18:34 pid:24609 worker[ChatBusinessWorker:24818] exit with status 64000
+2025-02-11 13:18:34 pid:24843 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:34 pid:24821 Worker[24821] process terminated
+2025-02-11 13:18:34 pid:24822 Worker[24822] process terminated
+2025-02-11 13:18:34 pid:24820 Worker[24820] process terminated
+2025-02-11 13:18:34 pid:24609 worker[ChatBusinessWorker:24822] exit with status 64000
+2025-02-11 13:18:34 pid:24609 worker[ChatBusinessWorker:24820] exit with status 64000
+2025-02-11 13:18:34 pid:24609 worker[ChatBusinessWorker:24821] exit with status 64000
+2025-02-11 13:18:34 pid:24844 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:34 pid:24845 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:34 pid:24846 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:35 pid:24843 Worker[24843] process terminated
+2025-02-11 13:18:35 pid:24609 worker[ChatBusinessWorker:24843] exit with status 64000
+2025-02-11 13:18:35 pid:24862 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:35 pid:24844 Worker[24844] process terminated
+2025-02-11 13:18:35 pid:24609 worker[ChatBusinessWorker:24844] exit with status 64000
+2025-02-11 13:18:35 pid:24845 Worker[24845] process terminated
+2025-02-11 13:18:35 pid:24846 Worker[24846] process terminated
+2025-02-11 13:18:35 pid:24609 worker[ChatBusinessWorker:24845] exit with status 64000
+2025-02-11 13:18:35 pid:24609 worker[ChatBusinessWorker:24846] exit with status 64000
+2025-02-11 13:18:35 pid:24864 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:35 pid:24866 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:35 pid:24865 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:36 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:36 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:36 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:36 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:36 pid:24862 Worker[24862] process terminated
+2025-02-11 13:18:36 pid:24609 worker[ChatBusinessWorker:24862] exit with status 64000
+2025-02-11 13:18:36 pid:24894 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:36 pid:24864 Worker[24864] process terminated
+2025-02-11 13:18:36 pid:24609 worker[ChatBusinessWorker:24864] exit with status 64000
+2025-02-11 13:18:36 pid:24866 Worker[24866] process terminated
+2025-02-11 13:18:36 pid:24865 Worker[24865] process terminated
+2025-02-11 13:18:36 pid:24901 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:36 pid:24609 worker[ChatBusinessWorker:24866] exit with status 64000
+2025-02-11 13:18:36 pid:24609 worker[ChatBusinessWorker:24865] exit with status 64000
+2025-02-11 13:18:36 pid:24902 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:36 pid:24903 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:37 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:37 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:37 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:37 pid:24616 Register auth timeout (127.0.0.1). See http://doc2.workerman.net/register-auth-timeout.html
+2025-02-11 13:18:37 pid:24894 Worker[24894] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24894] exit with status 64000
+2025-02-11 13:18:37 pid:24920 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:37 pid:24901 Worker[24901] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24901] exit with status 64000
+2025-02-11 13:18:37 pid:24902 Worker[24902] process terminated
+2025-02-11 13:18:37 pid:24921 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:37 pid:24903 Worker[24903] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24902] exit with status 64000
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24903] exit with status 64000
+2025-02-11 13:18:37 pid:24922 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:37 pid:24923 Error: Class 'Workerman\MySQL\Connection' not found in /root/workerman-fchat/server/Server/Datebase.php:32
+Stack trace:
+#0 /root/workerman-fchat/server/Events.php(41): Server\Datebase->__construct()
+#1 [internal function]: Events::onWorkerStart()
+#2 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(223): call_user_func()
+#3 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(2386): GatewayWorker\BusinessWorker->onWorkerStart()
+#4 /root/workerman-fchat/vendor/workerman/gateway-worker/src/BusinessWorker.php(197): Workerman\Worker->run()
+#5 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1534): GatewayWorker\BusinessWorker->run()
+#6 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1364): Workerman\Worker::forkOneWorkerForLinux()
+#7 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1338): Workerman\Worker::forkWorkersForLinux()
+#8 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1668): Workerman\Worker::forkWorkers()
+#9 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(1617): Workerman\Worker::monitorWorkersForLinux()
+#10 /root/workerman-fchat/vendor/workerman/workerman/Worker.php(541): Workerman\Worker::monitorWorkers()
+#11 /root/workerman-fchat/start.php(31): Workerman\Worker::runAll()
+#12 {main}
+2025-02-11 13:18:37 pid:24920 Worker[24920] process terminated
+2025-02-11 13:18:37 pid:24609 Workerman[start.php] stopping ...
+2025-02-11 13:18:37 pid:24923 Worker[24923] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24923] exit with status 64000
+2025-02-11 13:18:37 pid:24921 Worker[24921] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24920] exit with status 64000
+2025-02-11 13:18:37 pid:24922 Worker[24922] process terminated
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24921] exit with status 64000
+2025-02-11 13:18:37 pid:24609 worker[ChatBusinessWorker:24922] exit with status 64000
+2025-02-11 13:18:37 pid:24609 Workerman[start.php] has been stopped
