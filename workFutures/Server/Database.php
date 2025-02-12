@@ -248,7 +248,8 @@ class Database
     {
         // **1检测是否完成的订单，2确定order['money']不为0，执行退回money数量的money_freeze
         if ($order['money'] > 0) {
-            $money_freeze = $this->db->select('money_freeze')->from('User')->where('id = :id')->bindValues(array('id' => $order['uid']))->single();
+            //$money_freeze = $this->db->select('money_freeze')->from('User')->where('id = :id')->bindValues(array('id' => $order['uid']))->single();
+            $money_freeze = Db::table('User')->where('id', $order['uid'])->value('money_freeze');
             $money_freeze -= $order['money']; //冻结金额-剩余未使用金额
             //$res = $this->db->update('User')->cols(['money_freeze' => $money_freeze, 'update_time' => time()])->where('id=' . $order['uid'])->query();
             $res = Db::table('User')->where('id', $order['uid'])->update(['money_freeze' => $money_freeze, 'update_time' => time()]);

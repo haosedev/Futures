@@ -17,6 +17,8 @@ class StockData {
   public $MarketAllData;    //大盘统计
   public $lastMorningTime;  //上次开盘时间，开盘后保存时间，防止重复操作
   public $lastCloseTime;    //上次收盘时间，收盘后保存时间，防止重复操作
+  public $isOfferTime;      //是否开盘
+  public $status;           //状态：-1刚启动系统，0收盘状态，1开盘中准备中，2交易状态，3收盘准备中。
   
   public function __construct($GameServer) {
     
@@ -114,7 +116,7 @@ class StockData {
       $database->saveMarketAll($now_key,$this->MarketAllData);
       
       //清理所有未完成的挂单
-      $this->server->TransServer->clearOrder($order);   
+      $this->server->TransServer->clearOrder();   
       //每次收盘的时候，还要对KeepStock表的freeze进行解冻，清除buyday标记和freeze数量
       $this->ClearFreeze();
 
