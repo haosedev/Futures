@@ -10,10 +10,10 @@ namespace Server;
 use \Workerman\Worker;
 use think\facade\Db;
 
-class Datebase
+class Database
 {
 
-    public static function init()
+    public function init()
     {
         $config = require __DIR__ . '/../Config/database.php';
         Db::setConfig($config);
@@ -306,7 +306,7 @@ class Datebase
     {
         //$this->TodayData = $db->query("SELECT p.*,s.name FROM `PriceList` p left join `Stock` s on p.code=s.code where p.daytime='".$dateKey."'");
         //return  $this->db->select('p.*,s.name')->from('PriceList p')->innerJoin('Stock s', 'p.code=s.code')->where('p.daytime = :item')->bindValues(array('item' => $dateKey))->query();
-        return Db::table('PriceList')->alias('p')->join('Stock s', 'p.code=s.code')->where('p.daytime', $dateKey)->select();
+        return Db::table('PriceList')->alias('p')->join('Stock s', 'p.code=s.code')->where('p.daytime', $dateKey)->select()->toArray();
     }
     /*******************
      * 写入单只数据（如果已存在就放弃写入）

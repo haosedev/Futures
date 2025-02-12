@@ -18,10 +18,20 @@ class GameServer {
   public $maxPlayers;
   public $server;
   public $ups;
+  public $playerCount;
   public $players = array();
   public $EventsQueues = array();
   public $outgoingQueues = array();
   public $itime = null;     //当前时间
+
+  public $StockServer = null;    //数据服务器
+  public $TransServer = null;    //交易服务器
+  
+  public $removedCallback = null;
+  public $initCallback = null;
+  public $connectCallback = null;
+  public $enterCallback = null;
+  public $addedCallback = null;
   
   public function __construct($id, $maxPlayers, $websocketServer) {
       

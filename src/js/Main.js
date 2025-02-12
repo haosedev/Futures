@@ -73,7 +73,7 @@ export default {
       this.visible = false;
     },
     initWebSocket(){ // 初始化weosocket
-      const wsuri = "ws://47.99.245.128:8050";
+      const wsuri = "ws://121.199.163.109:8050";
       this.websock = new WebSocket(wsuri);
       this.websock.onmessage = this.websocketonmessage;
       this.websock.onopen = this.websocketonopen;

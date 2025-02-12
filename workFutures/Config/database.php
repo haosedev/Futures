@@ -5,7 +5,7 @@ return [
         'mysql' => [
             'type' => 'mysql',
             'hostname' => '127.0.0.1',
-            'database' => 'Futures',
+            'database' => 'futures',
             'username' => 'Futures',
             'password' => 'Bushiba520',
             'hostport' => '3306',

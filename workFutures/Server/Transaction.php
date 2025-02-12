@@ -22,13 +22,13 @@ class Transaction {
    */ 
   public function OrderBuy($order_buy){
 
-    global $datebase;
+    global $database;
     //**查询卖单，把符合的卖单按时间先后顺序逐条取出处理。直到无可用订单。
     do{
       $sn = Utils::makeSN(8);
-    }while(!$datebase->IsEmptySn($sn,'Listbuy'));
+    }while(!$database->IsEmptySn($sn,'Listbuy'));
     $order_buy['sn']=$sn;
-    //$datebase->beginTrans();  //事务开始
+    //$database->beginTrans();  //事务开始
     $end=false;
     do{
       //1读取
@@ -36,7 +36,7 @@ class Transaction {
       //3生成成交订单
       //未完成继续读取1
       //4直到读取1返回false，或者处理完成。
-      $order_sell=$datebase->fetchListSellByOrder($order_buy);
+      $order_sell=$database->fetchListSellByOrder($order_buy);
       if ($order_sell){
         if ($order_sell['surplus'] >= $order_buy['surplus']){
           //挂单方有剩余
@@ -59,7 +59,7 @@ class Transaction {
         $order_buy['money'] -= ($deal_money+$order_buy['tax']);     //买家剩余-(成交金额+买家税收)
         $order_sell['money'] += ($deal_money-$order_sell['tax']);   //卖家获得+(成交金额-卖家税收)(一般卖方收益，所以需要支付税金)
         //重写卖家挂单
-        $datebase->updateListSell($order_sell);
+        $database->updateListSell($order_sell);
         //****通知卖方（如果在线）更新用户信息 ---------这里有信息延迟，数据库写入未执行完毕，就算发送了还是有数据的
         $sellplayer=$this->server->GetPlayerByUid($order_sell['uid']);
         if ($sellplayer){
@@ -69,7 +69,7 @@ class Transaction {
         };
         //生成交易流水单
         //id	daytime	type 0:卖方发起，1：买方发起	code 股票代码	amount 成交数量	money 成交金额	create_time 成交时间	buy_uid	buy_sn	sell_uid	sell_sn
-        $datebase->saveListDeal([
+        $database->saveListDeal([
           'daytime'=>$order_buy['daytime'],
           'type'=>1,
           'code'=>$order_buy['code'],
@@ -83,21 +83,21 @@ class Transaction {
           'sell_tax'=>$order_sell['tax'],
         ]);
         //修改卖家金额
-        $datebase->ChangeMoney($order_sell['uid'], $deal_money-$order_sell['tax'], 'Add');
-        $datebase->UnlockFreezeMoney($order_buy['uid'], $deal_money);
+        $database->ChangeMoney($order_sell['uid'], $deal_money-$order_sell['tax'], 'Add');
+        $database->UnlockFreezeMoney($order_buy['uid'], $deal_money);
         //累计需要更新双方 KeepStore
-        $datebase->KeepBuySuccess($order_buy['uid'], $order_buy['code'], $deal_num, $deal_money, $order_buy['daytime']);   //买方的库存变化是 股票数增加，买入价格累加
-        $datebase->KeepSellSuccess($order_sell['uid'], $order_buy['code'], $deal_num, $deal_money);                //卖方库存变化是股票减少，买入价格降低
+        $database->KeepBuySuccess($order_buy['uid'], $order_buy['code'], $deal_num, $deal_money, $order_buy['daytime']);   //买方的库存变化是 股票数增加，买入价格累加
+        $database->KeepSellSuccess($order_sell['uid'], $order_buy['code'], $deal_num, $deal_money);                //卖方库存变化是股票减少，买入价格降低
       }else{
         $end=true ;
       }
     }while(!$end);
     //写入买订单，并提示标记status和surplus。
-    $datebase->saveListBuy($order_buy);
+    $database->saveListBuy($order_buy);
     
     //*****向系统挂消息，刷新买方卖方的数据。
 
-    //$datebase->commitTrans(); //提交
+    //$database->commitTrans(); //提交
     return true;
   }
   /***********************
@@ -106,12 +106,12 @@ class Transaction {
    */ 
   public function OrderSell($order_sell){
 
-    global $datebase;
+    global $database;
     do{
       $sn=Utils::makeSN(8);
-    }while(!$datebase->IsEmptySn($sn,'Listsell'));
+    }while(!$database->IsEmptySn($sn,'Listsell'));
     $order_sell['sn']=$sn;
-    //$datebase->beginTrans();  //事务开始
+    //$database->beginTrans();  //事务开始
     $end=false;
     do{
       //1读取
@@ -119,7 +119,7 @@ class Transaction {
       //3生成成交订单
       //未完成继续读取1
       //4直到读取1返回false，或者处理完成。
-      $order_buy=$datebase->fetchListBuyByOrder($order_sell);
+      $order_buy=$database->fetchListBuyByOrder($order_sell);
       if ($order_buy){
         if ($order_buy['surplus'] >= $order_sell['surplus']){
           //挂单方有剩余
@@ -142,7 +142,7 @@ class Transaction {
         $order_buy['money'] -= ($deal_money+$order_buy['tax']);      //买家剩余-(成交金额+买家税收)
         $order_sell['money'] += ($deal_money-$order_sell['tax']);    //卖家获得+(成交金额-卖家税收)
         //重写卖家挂单
-        $datebase->updateListBuy($order_buy);
+        $database->updateListBuy($order_buy);
         //****通知买方（如果在线）更新用户信息---------这里有信息延迟，数据库写入未执行完毕，就算发送了还是有数据的
         $buyplayer=$this->server->GetPlayerByUid($order_buy['uid']);
         if ($buyplayer){
@@ -151,7 +151,7 @@ class Transaction {
 
         //生成交易流水单
         //id	daytime	type 0:卖方发起，1：买方发起	code 股票代码	amount 成交数量	money 成交金额	create_time 成交时间	buy_uid	buy_sn	sell_uid	sell_sn
-        $datebase->saveListDeal([
+        $database->saveListDeal([
           'daytime'=>$order_sell['daytime'],
           'type'=>1,
           'code'=>$order_sell['code'],
@@ -165,21 +165,21 @@ class Transaction {
           'sell_tax'=>$order_sell['tax'],
         ]);
         //修改卖家金额
-        $datebase->ChangeMoney($order_sell['uid'], $deal_money-$order_sell['tax'], 'Add');
-        $datebase->UnlockFreezeMoney($order_buy['uid'], $deal_money);
+        $database->ChangeMoney($order_sell['uid'], $deal_money-$order_sell['tax'], 'Add');
+        $database->UnlockFreezeMoney($order_buy['uid'], $deal_money);
         //累计需要更新双方 KeepStore，售卖成功
-        $datebase->KeepBuySuccess($order_buy['uid'], $order_sell['code'], $deal_num, $deal_money, $order_sell['daytime']);   //买方的库存变化是 股票数增加，买入价格累加
-        $datebase->KeepSellSuccess($order_sell['uid'], $order_sell['code'], $deal_num, $deal_money);                 //卖方库存变化是股票减少，买入价格降低
+        $database->KeepBuySuccess($order_buy['uid'], $order_sell['code'], $deal_num, $deal_money, $order_sell['daytime']);   //买方的库存变化是 股票数增加，买入价格累加
+        $database->KeepSellSuccess($order_sell['uid'], $order_sell['code'], $deal_num, $deal_money);                 //卖方库存变化是股票减少，买入价格降低
       }else{
         $end=true ;
       }
     }while(!$end);
     //写入买订单，并提示标记status和surplus。
-    $datebase->saveListSell($order_sell);
+    $database->saveListSell($order_sell);
     
     //*****向系统挂消息，刷新买方卖方的数据。
 
-    //$datebase->commitTrans(); //提交
+    //$database->commitTrans(); //提交
     return true;
   }
   /***********************
@@ -220,16 +220,16 @@ class Transaction {
    * 清算未成交订单
    */
   public function clearOrder(){
-    global $datebase;
+    global $database;
     ////////////////清理买单
     $end=false;
     do{
       //1按顺序读取一单
       //2执行相应处理
       //3直到读取不到订单
-      $order_buy=$datebase->fetchListBuy();
+      $order_buy=$database->fetchListBuy();
       if ($order_buy){
-        $datebase->KeepBuyFail($order_buy);
+        $database->KeepBuyFail($order_buy);
       }else{
         $end=true ;
       }
@@ -240,9 +240,9 @@ class Transaction {
       //1按顺序读取一单
       //2执行相应处理
       //3直到读取不到订单
-      $order_sell=$datebase->fetchListSell();
+      $order_sell=$database->fetchListSell();
       if ($order_sell){
-        $datebase->KeepSellFail($order_sell);
+        $database->KeepSellFail($order_sell);
       }else{
         $end=true ;
       }
@@ -253,14 +253,14 @@ class Transaction {
    * 单独清退买单
    */
   public function closeBuyOrder($order){
-    global $datebase;
+    global $database;
     
   }
   /***********************
    * 单独清退卖单
    */
   public function closeSellOrder($order){
-    global $datebase;
+    global $database;
     
   }
 

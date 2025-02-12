@@ -7,7 +7,7 @@ use \Workerman\Worker;
 use \Server\Utils;
 use \Server\Player;
 use \Server\GameServer;
-use \Server\Datebase;
+use \Server\Database;
 
 // 自动加载类
 require_once __DIR__ . '/vendor/autoload.php';
@@ -25,10 +25,12 @@ $ws_worker->count = 1;
 //服务启动时
 $ws_worker->onWorkerStart = function($ws_worker){
     // 将db实例存储在全局变量中(也可以存储在某类的静态成员中)
-    global $db, $datebase;
+    global $db, $database;
     //$db = new \Workerman\MySQL\Connection('localhost', '3306', 'Futures', 'Bushiba520', 'Futures');
-    $datebase = new Datebase('Futures', 'Bushiba520', 'Futures');
-    
+    //$database = new Datebase('Futures', 'Bushiba520', 'futures');
+    $database = new Database();
+    $database->init();
+
     $gameServer = new GameServer('world1', 1000, $ws_worker);
     $gameServer->run();
     

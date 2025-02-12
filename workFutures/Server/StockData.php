@@ -32,9 +32,9 @@ class StockData {
     });
     
     //服务器启动时，把数据库数据读取到缓存中。
-    global $db, $datebase;
-    $dateKey = $datebase->getDataKey();
-    $this->TodayData = $datebase->getTodayData($dateKey);
+    global $db, $database;
+    $dateKey = $database->getDataKey();
+    $this->TodayData = $database->getTodayData($dateKey);
 
     //
     $this->resetMarket();   //大盘重新统计
@@ -105,13 +105,13 @@ class StockData {
     if ($this->lastCloseTime!=$now_key){  //不是保存状态时才操作
       $this->status = 3;
       
-      global $db, $datebase;
+      global $db, $database;
       //收盘写入数据库，当前数据保留当明日开盘
       foreach($this->TodayData as $k=>$v){
-        $datebase->saveDataSingle($now_key,$v);
+        $database->saveDataSingle($now_key,$v);
       }
       //写入大盘数据
-      $datebase->saveMarketAll($now_key,$this->MarketAllData);
+      $database->saveMarketAll($now_key,$this->MarketAllData);
       
       //清理所有未完成的挂单
       $this->server->TransServer->clearOrder($order);   
@@ -235,9 +235,9 @@ class StockData {
   private function resetMarket(){
     //$this->MarketAllData
     //大盘统计内容  全量昨日收盘，全量开盘价格，全量当前价，时间，涨跌，涨幅，
-    $this->MarketAllData['yestoday_price']=array_sum(array_column($this->TodayData, 'yestoday_price'));
-    $this->MarketAllData['start_price']=array_sum(array_column($this->TodayData, 'start_price'));
-    $this->MarketAllData['now_price']=array_sum(array_column($this->TodayData, 'now_price'));
+    $this->MarketAllData['yestoday_price']=array_sum(array_column((array)$this->TodayData, 'yestoday_price'));
+    $this->MarketAllData['start_price']=array_sum(array_column((array)$this->TodayData, 'start_price'));
+    $this->MarketAllData['now_price']=array_sum(array_column((array)$this->TodayData, 'now_price'));
     $this->MarketAllData['daytime']=date(__DAYTIME_KEY__);
     $this->MarketAllData['ud_price']=0;
     $this->MarketAllData['ud_precent']=0;
@@ -246,9 +246,9 @@ class StockData {
   private function calcMarket(){
     //$this->MarketAllData
     //大盘统计内容  全量昨日收盘，全量开盘价格，全量当前价，时间，涨跌，涨幅，
-    //$this->MarketAllData['yestoday_price']=array_sum(array_column($this->TodayData, 'yestoday_price'));
-    //$this->MarketAllData['start_price']=array_sum(array_column($this->TodayData, 'start_price'));
-    $this->MarketAllData['now_price']=array_sum(array_column($this->TodayData, 'now_price'));
+    //$this->MarketAllData['yestoday_price']=array_sum(array_column((array)$this->TodayData, 'yestoday_price'));
+    //$this->MarketAllData['start_price']=array_sum(array_column((array)$this->TodayData, 'start_price'));
+    $this->MarketAllData['now_price']=array_sum(array_column((array)$this->TodayData, 'now_price'));
     $this->MarketAllData['ud_price']=$this->MarketAllData['now_price']-$this->MarketAllData['start_price'];
     
     $ud_precent=($this->MarketAllData['ud_price']/$this->MarketAllData['start_price'])*10000;
@@ -276,8 +276,8 @@ class StockData {
    * 
    */ 
   public function ClearFreeze(){
-    global $db, $datebase;
-    $datebase->ClearFreeze();
+    global $db, $database;
+    $database->ClearFreeze();
   }
   /*
    * 检测股票代码和价格是否符合当前规范
@@ -287,7 +287,7 @@ class StockData {
   public function checkCodePrice($code, $price){
     if ($this->isOfferTime==false) return false;
     //
-    $arr = array_column($this->TodayData, 'code');
+    $arr = array_column((array)$this->TodayData, 'code');
     $found_key = array_search($code, $arr);
 
     if ($found_key!==false){

@@ -69,7 +69,7 @@ class Player {
       $this->server->StockServer->SendAllDataToPlayer($this);
         
     }elseif($action == TYPES_LOGIN){
-      global $db, $datebase;
+      global $db, $database;
       if (!$this->isLogin){
         //$name = strtolower(preg_replace('/^( |\s)*|( |\s)*$/', '', $message[1])));       //头尾去空格并转小写
         $name = strtolower(preg_replace('/\s+/', '', $message[1]));            //去掉所有空格并转小写
@@ -77,7 +77,7 @@ class Player {
         $pwd = preg_replace('/\s+/', '', $message[2]);                         //去掉所有空格 
 
         if ($name){
-          $tmp = $datebase->UserLogin($name, $pwd);
+          $tmp = $database->UserLogin($name, $pwd);
           if ($tmp){
             $this->isLogin=true;
             $tmp['login_time']=time();
@@ -184,8 +184,8 @@ class Player {
   private function UpdateUserInfo(){
     if ($this->isLogin && ($this->userInfo['id']>0)){
       //写入数据库
-      global $datebase;
-      $datebase->UpdateUserInfo($this->userInfo);
+      global $database;
+      $database->UpdateUserInfo($this->userInfo);
       return true;
     }
     return false;
@@ -194,8 +194,8 @@ class Player {
    * 重新获取用户信息
    */
   public function refreshUserInfo(){
-    global $datebase;
-    $tmp = $datebase->refreshUserInfo($this->userInfo['id']);
+    global $database;
+    $tmp = $database->refreshUserInfo($this->userInfo['id']);
     if ($tmp){
         $this->userInfo=$tmp;
     }
@@ -211,8 +211,8 @@ class Player {
    */
   public function reFreshKeepStockInfo(){
     //重新读取持仓信息
-    global $datebase;
-    $this->KeepStock = $datebase->getUserKeep($this->userInfo['id']);
+    global $database;
+    $this->KeepStock = $database->getUserKeep($this->userInfo['id']);
     //计算当前均价
     foreach($this->KeepStock as $k=>$v){
       $this->KeepStock[$k]['price']=intval($v['buy_money']/$v['num']);  //取整
@@ -235,17 +235,17 @@ class Player {
    * 发送我当前的未完成挂单信息
    */
   public function sendMyOrder(){
-    global $datebase;
+    global $database;
     //**发送我当前的挂单信息
     //1读取我的买单
     //2读取我的卖单
     //3组合在一起发送
     if ($this->isLogin){
-      $buyOrders= $datebase->fetchListBuyByUser($this->userInfo['id'], $this->server->StockServer->daytime);
+      $buyOrders= $database->fetchListBuyByUser($this->userInfo['id'], $this->server->StockServer->daytime);
       foreach($buyOrders as $k=>$v){
         $buyOrders[$k]['mode']=1; //模式：买
       }
-      $sellOrders= $datebase->fetchListSellByUser($this->userInfo['id'], $this->server->StockServer->daytime);
+      $sellOrders= $database->fetchListSellByUser($this->userInfo['id'], $this->server->StockServer->daytime);
       foreach($sellOrders as $k=>$v){
         $sellOrders[$k]['mode']=-1; //模式：卖
       }
@@ -281,9 +281,9 @@ class Player {
    * 用于挂单卖
    */
   public function checkKeepStock($order){
-    global $datebase;
+    global $database;
     if ($this->isLogin && ($this->userInfo['id']>0)){
-      if ($datebase->KeepWantSell($this->userInfo['id'], $order['code'], $order['amount'])){
+      if ($database->KeepWantSell($this->userInfo['id'], $order['code'], $order['amount'])){
         return true;
       }else{
         return false;   //货不够
@@ -296,9 +296,9 @@ class Player {
    * 用于挂单买
    */
   public function TryToUseMoney($money){
-    global $datebase;
+    global $database;
     if ($this->isLogin && ($this->userInfo['id']>0)){
-      if ($datebase->KeepWantBuy($this->userInfo['id'], $money)){
+      if ($database->KeepWantBuy($this->userInfo['id'], $money)){
         //$this->refreshUserInfo($this->userInfo['id']);
         //$this->sendUserInfo();    //等订单发起后一起通知用户
         return true;
