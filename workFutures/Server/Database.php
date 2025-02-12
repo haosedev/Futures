@@ -102,7 +102,7 @@ class Database
     public function getUserKeep($uid = 0)
     {
         //return $this->db->select('k.*,s.name')->from('KeepStock k')->innerJoin('Stock s', 'k.code=s.code')->where('k.uid = :uid and k.num>0 ')->bindValues(array('uid' => $uid))->query();
-        return Db::table('KeepStock')->alias('k')->join('Stock s', 'k.code=s.code')->where('k.uid', $uid)->where('k.num', '>', 0)->select();
+        return Db::table('KeepStock')->alias('k')->join('Stock s', 'k.code=s.code')->where('k.uid', $uid)->where('k.num', '>', 0)->select()->toArray();
     }
     /*******************
      * 尝试挂单售卖（金额不变，股票不变，卖出部分添加锁定）。
@@ -394,10 +394,10 @@ class Database
     {
         if ($all) {
             //return $this->db->select('lb.*,s.name')->from('Listbuy lb')->innerJoin('Stock s', 'lb.code=s.code')->where('lb.uid=:uid and lb.daytime=:daytime')->bindValues(array('uid' => $uid, 'daytime' => $daytime))->orderByASC(array('id'))->query();
-            return Db::table('Listbuy')->alias('lb')->join('Stock s', 'lb.code=s.code')->where('lb.uid', $uid)->where('lb.daytime', $daytime)->select();
+            return Db::table('Listbuy')->alias('lb')->join('Stock s', 'lb.code=s.code')->where('lb.uid', $uid)->where('lb.daytime', $daytime)->select()->toArray();
         } else {
             //return $this->db->select('lb.*,s.name')->from('Listbuy lb')->innerJoin('Stock s', 'lb.code=s.code')->where('lb.status=0 and lb.uid=:uid and lb.daytime=:daytime')->bindValues(array('uid' => $uid, 'daytime' => $daytime))->orderByASC(array('id'))->query();
-            return Db::table('Listbuy')->alias('lb')->join('Stock s', 'lb.code=s.code')->where('lb.status', 0)->where('lb.uid', $uid)->where('lb.daytime', $daytime)->select();
+            return Db::table('Listbuy')->alias('lb')->join('Stock s', 'lb.code=s.code')->where('lb.status', 0)->where('lb.uid', $uid)->where('lb.daytime', $daytime)->select()->toArray();
         }
     }
     /*******************
@@ -425,10 +425,10 @@ class Database
     {
         if ($all) {
             //return $this->db->select('ls.*, s.name')->from('Listsell ls')->innerJoin('Stock s', 'ls.code=s.code')->where('ls.uid=:uid and ls.daytime=:daytime')->bindValues(array('uid' => $uid, 'daytime' => $daytime))->orderByASC(array('id'))->query();
-            return Db::table('Listsell')->alias('ls')->join('Stock s', 'ls.code=s.code')->where('ls.uid', $uid)->where('ls.daytime', $daytime)->select();
+            return Db::table('Listsell')->alias('ls')->join('Stock s', 'ls.code=s.code')->where('ls.uid', $uid)->where('ls.daytime', $daytime)->select()->toArray();
         } else {
             //return $this->db->select('ls.*, s.name')->from('Listsell ls')->innerJoin('Stock s', 'ls.code=s.code')->where('ls.status=0 and ls.uid=:uid and ls.daytime=:daytime')->bindValues(array('uid' => $uid, 'daytime' => $daytime))->orderByASC(array('id'))->query();
-            return Db::table('Listsell')->alias('ls')->join('Stock s', 'ls.code=s.code')->where('ls.status', 0)->where('ls.uid', $uid)->where('ls.daytime', $daytime)->select();
+            return Db::table('Listsell')->alias('ls')->join('Stock s', 'ls.code=s.code')->where('ls.status', 0)->where('ls.uid', $uid)->where('ls.daytime', $daytime)->select()->toArray();
         }
     }
 
@@ -483,7 +483,7 @@ class Database
             $status = 1;
             if ($order['surplus'] > 0) $status = 0;
             $time = time();
-            // $insert_id = $this->db->insert('Listbuy')->cols([
+            // $this->db->insert('Listbuy')->cols([
             //     'daytime'     => $order['daytime'],
             //     'create_time' => $time,
             //     'update_time' => $time,
@@ -497,7 +497,7 @@ class Database
             //     'uid'         => $order['uid'],
             //     'status'      => $status,
             // ])->query();
-            $insert_id = $this->db->insert('Listbuy')->cols([
+            Db::table('Listbuy')->insert([
                 'daytime'     => $order['daytime'],
                 'create_time' => $time,
                 'update_time' => $time,
@@ -510,7 +510,7 @@ class Database
                 'tax'         => $order['tax'],
                 'uid'         => $order['uid'],
                 'status'      => $status,
-            ])->query();
+            ]);
         }
     }
 
@@ -527,7 +527,7 @@ class Database
             $status = 1;
             if ($order['surplus'] > 0) $status = 0;
             $time = time();
-            // $insert_id = $this->db->insert('Listsell')->cols([
+            // $this->db->insert('Listsell')->cols([
             //     'daytime'     => $order['daytime'],
             //     'create_time' => $time,
             //     'update_time' => $time,
@@ -541,7 +541,7 @@ class Database
             //     'uid'         => $order['uid'],
             //     'status'      => $status,
             // ])->query();
-            $insert_id = $this->db->insert('Listsell')->cols([
+            Db::table('Listsell')->insert([
                 'daytime'     => $order['daytime'],
                 'create_time' => $time,
                 'update_time' => $time,
@@ -554,12 +554,7 @@ class Database
                 'tax'         => $order['tax'],
                 'uid'         => $order['uid'],
                 'status'      => $status,
-            ])->query();
-            if ($insert_id) {
-                return $insert_id;
-            } else {
-                return false;
-            }
+            ]);
         }
     }
     /*******************
@@ -571,7 +566,7 @@ class Database
         //id  daytime	type 0:卖方发起，1：买方发起	code 股票代码	amount 成交数量	money 成交金额	create_time 成交时间	buy_uid	buy_sn	sell_uid	sell_sn
         if ($arr) {
             $time = time();
-            // $insert_id = $this->db->insert('Listdeal')->cols([
+            // $this->db->insert('Listdeal')->cols([
             //     'daytime'    => $arr['daytime'],
             //     'type'       => $arr['type'],
             //     'code'       => $arr['code'],
@@ -585,7 +580,7 @@ class Database
             //     'sell_sn'    => $arr['sell_sn'],
             //     'sell_tax'   => $arr['sell_tax'],
             // ])->query();
-            $insert_id = $this->db->insert('Listdeal')->cols([
+            Db::table('Listdeal')->insert([
                 'daytime'    => $arr['daytime'],
                 'type'       => $arr['type'],
                 'code'       => $arr['code'],
@@ -598,7 +593,8 @@ class Database
                 'sell_uid'   => $arr['sell_uid'],
                 'sell_sn'    => $arr['sell_sn'],
                 'sell_tax'   => $arr['sell_tax'],
-            ])->query();
+            ]);
+
         }
     }
 }
